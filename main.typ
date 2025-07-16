@@ -1,4 +1,8 @@
-#import "@preview/slydst:0.1.4": *
+#import "@preview/slydst:0.1.4": slides
+
+#set text(
+  font: "Libertinus Sans",
+)
 
 #show: slides.with(
   authors: ("Curated by Steven Huang (stvhuang.me@gmail.com)",),
