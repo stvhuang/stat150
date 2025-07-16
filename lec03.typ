@@ -79,14 +79,14 @@ For a time-homogenous MC with finite state space $|S| < infinity$, we can put th
 Def: Transition Matrix
 
 $
-  PP = (p_(i,j))_(i,j)
+  underline(P) = (p_(i,j))_(i,j)
 $
 
-i.e. $PP$ is a matrix whose $i,j$"th entry is $p_(i,j) = P(X_(n+1)=j | X_n=i)$ (for all $n$)
+i.e. $underline(P)$ is a matrix whose $i,j$"th entry is $p_(i,j) = P(X_(n+1)=j | X_n=i)$ (for all $n$)
 
 #pagebreak()
 
-- If $|S| = infinity$ but countable, e.g. $S = {0, 1, 2, dots}$ then $PP$ is an infinite matrix.
+- If $|S| = infinity$ but countable, e.g. $S = {0, 1, 2, dots}$ then $underline(P)$ is an infinite matrix.
 - For now, we'll mainly focus on MC's with finite state spaces.
 
 Note: in this case we can always encode $S$ by ${0, 1, dots, N}$ or ${1, 2, dots, N}$ --- often it is convenient to do so.
@@ -102,7 +102,7 @@ Please take a look. We'll do some today --- but not all of them.
 
 #pagebreak()
 
-== Examples:
+Examples:
 
 (1) Simple Random Walk (SRW) on integers $ZZ = {0, +-1, +-2, ...}$, $p in (0,1)$.
 
@@ -192,7 +192,7 @@ Called Gambler's Ruin because:
 
 #pagebreak()
 
-== Interesting Questions:
+Interesting Questions:
 
 $
   T & = min { n >= 1: X_n in {0, N} } \
