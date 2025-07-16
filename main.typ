@@ -12,3 +12,4 @@
 )
 
 #include "./lec03.typ"
+#include "./lec04.typ"

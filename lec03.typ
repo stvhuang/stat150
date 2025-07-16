@@ -1,8 +1,8 @@
 #import "misc.typ": FIXME
 
-= Lecture 3
+== Lecture 3
 
-== Markov Chains (MC)
+Markov Chains (MC)
 
 Most stochastic processes we'll study this semester have a special property called the *Markov Property*.
 
