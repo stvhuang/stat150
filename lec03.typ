@@ -19,7 +19,7 @@ $
 Recall: Conditional probability of B given A
 
 $
-  P(B|A) = (P(A inter B)) / (P(B))
+  P(A|B) = (P(A inter B)) / (P(B))
 $
 
 #pagebreak()
@@ -27,11 +27,11 @@ $
 Def: $(X_n)$ is a (discrete time) Markov Chain (MC) if
 
 $
-  P(X_(n+1) = x_(n+1) | X_n = x_n, ..., X_0 = x_0) \
+  P(X_(n+1) = x_(n+1) | X_n = x_n, dots, X_0 = x_0) \
   = P(X_(n+1) = x_(n+1) | X_n = x_n)
 $
 
-for *all* $n >= 1$ and $x_(n+1), dots x_0$.
+for *all* $n >= 1$ and $x_(n+1), dots, x_0$
 
 #pagebreak()
 
@@ -46,7 +46,7 @@ Reading, looking at the examples, & doing exercises here is encouraged!
 
 In other words, when asking what the MC will do next, all that matters is its current state (not how it got there, etc.).
 
-Def: $P(X_(n+1) = x_(n+1) | X_n = x_n)$ is called the transition probability from $x_n$ to $x_(n+1)$ at time $n+1$.
+Def: $P(X_(n+1) = x_(n+1) | X_n = x_n)$ is called the *transition probability* from $x_n$ to $x_(n+1)$ at time $n+1$.
 
 #pagebreak()
 
@@ -74,7 +74,7 @@ $arrow$ Sometimes $Omega$ instead of $S$.
 
 #pagebreak()
 
-For a time-homogenous MC with finite state space $|S| < infinity$, we can put the transition probabilities in a matrix:
+For a time-homogenous MC with finite state space $|S| < oo$, we can put the transition probabilities in a matrix:
 
 Def: Transition Matrix
 
@@ -82,11 +82,15 @@ $
   underline(P) = (p_(i,j))_(i,j)
 $
 
-i.e. $underline(P)$ is a matrix whose $i,j$"th entry is $p_(i,j) = P(X_(n+1)=j | X_n=i)$ (for all $n$)
+i.e. $underline(P)$ is a matrix whose $i,j$'th#footnote[$i$'th row and $j$'th column] entry is
+$
+  p_(i,j) = P(X_(n+1)=j | X_n=i)
+$
+(for all $n$)
 
 #pagebreak()
 
-- If $|S| = infinity$ but countable, e.g. $S = {0, 1, 2, dots}$ then $underline(P)$ is an infinite matrix.
+- If $|S| = oo$ but countable, e.g. $S = {0, 1, 2, dots}$ then $underline(P)$ is an infinite matrix.
 - For now, we'll mainly focus on MC's with finite state spaces.
 
 Note: in this case we can always encode $S$ by ${0, 1, dots, N}$ or ${1, 2, dots, N}$ --- often it is convenient to do so.
@@ -102,9 +106,8 @@ Please take a look. We'll do some today --- but not all of them.
 
 #pagebreak()
 
-Examples:
-
-(1) Simple Random Walk (SRW) on integers $ZZ = {0, +-1, +-2, ...}$, $p in (0,1)$.
+Examples: \
+(1) Simple Random Walk (SRW) on integers $ZZ = {0, plus.minus 1, plus.minus 2, ...}$, $p in (0,1)$.
 
 #FIXME diagram
 // $ dots arrow i-1 stack(rel: 0.5em, "q=1-p", leftarrow) i stack(rel: 0.5em, "p", rightarrow) i+1 arrow dots $

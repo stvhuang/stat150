@@ -2,11 +2,12 @@
 
 #set text(
   font: "Libertinus Sans",
+  size: 12pt,
 )
 
 #show: slides.with(
   authors: ("Curated by Steven Huang (stvhuang.me@gmail.com)",),
-  layout: "medium",
+  layout: "small",
   ratio: 4 / 3,
   title: "UCBerkeley STAT150\nLecture Notes",
 )
