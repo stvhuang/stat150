@@ -11,13 +11,13 @@ $
 
 (i.e., doesn't depend on $n$) for *all* $n$ and states $i, j, x_(n-1), dots x_0$.
 
-- $underline(P) = underbrace((p_(i j)))_("tr. prob. from " i " to " j) = "Transition matrix"$
+- $underline(P) = underbrace(p_(i j), "tr. prob. from" i "to" j) = "Transition matrix"$
 
 #pagebreak()
 
 We did a couple examples ((1) SRW & (2) Gambler's ruin). Let's see one more:
 
-(3) Ehrenfest model
+(3) Ehrenfest model: \
 Physicists (wife & husband): Tatiana & Paul Ehrenfest proposed this model to explain the 2nd law of thermodynamics: in particular, an isolated system will naturally evolve toward max entropy (least ordered).
 
 #pagebreak()
@@ -35,12 +35,11 @@ To get a mathematical model:
 - Each step, select a molecule uniformly at random (amongst all $N$) and then move it to the other side.
 
 $
-  p(i, i-1) = P("pick mol. from left") = i/N
-$
-
-$
+  p(i, i-1) & = P("pick mol. from left") \
+            & = i/N \
   p(i, i+1) & = P("pick mol. from right") \
-            & = (N-i)/N = 1 - i/N
+            & = (N-i)/N \
+            & = 1 - i/N
 $
 
 (& all other $p_(i j)=0$)
@@ -54,7 +53,7 @@ $
 By the 2nd law of thermodynamics, you might expect this *equilibrium distribution* to be:
 
 $
-  lim_(n->oo) P(X_(n=i)) = (overbrace(binom(N, i))^("# subsets size" i)) / (underbrace(2^N)_("# subsets")), quad 0 <= i <= N
+  lim_(n->oo) P(X_(n=i)) = (overbrace(binom(N, i), "# subsets size" i)) / (underbrace(2^N, "# subsets")), 0 <= i <= N
 $
 
 #pagebreak()
@@ -70,10 +69,10 @@ Take a look at the other examples in [D] §1.1.
 [D] §1.2: Multi-step transition prob.'s
 
 $
-  P = (p_(i j)), quad p_(i j) = P(X_(n+1) = j | X_n = i)
+  P = (p_(i j)), p_(i j) = P(X_(n+1) = j | X_n = i)
 $
 
-E.g.,$X_n = cases(
+E.g., $X_n = cases(
   0 & "Rainy",
   1 & "Sunny",
 )$ on day $n$.
@@ -87,25 +86,33 @@ I.e., given rainy today, the probability of sunny tomorrow is 60%.
 
 #pagebreak()
 
-$ 0 equiv "RAINY", 1 equiv "SUNNY" $
+$
+  0 equiv "RAINY" \
+  1 equiv "SUNNY"
+$
+
+#FIXME
 
 $
   underbrace(P, " ") =
   mat(
-    "", 0, 1;
+    ?, 0, 1;
     0, .4, .6;
     1, .7, .3
   )
 $
 
-$ P("SUNNY 2 DAYS FROM NOW" | "RAINY TODAY") $
-$ = P(X_(n+2) = 1 | X_n = 0) $
-$ = P(X_(n+2)=1, X_(n+1)=0 | X_n=0) + P(X_(n+2)=1, X_(n+1)=1 | X_n=0) $ // LOTP
-$ = p_(00) p_(01) + p_(01) p_(11) = .4(.6) + .6(.3) $
+$
+  & P("SUNNY 2 DAYS FROM NOW" | "RAINY TODAY") \
+  & = P(X_(n+2) = 1 | X_n = 0) \
+  & = P(X_(n+2)=1, X_(n+1)=0 | X_n=0) + P(X_(n+2)=1, X_(n+1)=1 | X_n=0) \
+  & = p_(00) p_(01) + p_(01) p_(11) \
+  & = .4(.6) + .6(.3)
+$
 
 #pagebreak()
 
-*But what is $p_(00) p_(01) + p_(01) p_(11)$?*
+But what is $p_(00) p_(01) + p_(01) p_(11)$?
 
 $ P = mat(.4, .6; .7, .3) = mat(p_(00), p_(01); p_(10), p_(11)) $
 
@@ -122,10 +129,13 @@ $ p_(00) p_(01) + p_(01) p_(11) = (P^2)_(01) $
 
 #pagebreak()
 
-*This holds in general:*
+This holds in general:
 
 To get $m$ step transition prob.'s
-$ p_(i j)^(m) = p^(m)(i,j) = P(X_(n+m)=j | X_n=i) $
+
+$
+  p_(i j)^(m) = p^(m)(i,j) = P(X_(n+m)=j | X_n=i)
+$
 
 We simply take $P$ to the $m$th power $P^m$.
 
@@ -135,26 +145,50 @@ Theorem
 
 Let $(X_n)$ be a (time-hom.) MC on state space $S$.
 Then, for any $m$ and $i, j in S$,
-$ p_(i j)^(m) = P(X_(n+m)=j | X_n=i) = (P^m)_(i j) $
+$
+  p_(i j)^(m) = P(X_(n+m)=j | X_n=i) = (P^m)_(i j)
+$
 
 #pagebreak()
 
-*Useful if $P$ can be diagonalized:*
-$ P = U^(-1) D U $
-$D$ = Diagonal matrix of eigenvalues
-$U$ = Rows are corr. left eigenvectors
-$U^(-1)$ = Columns are right eigenvectors
+Useful if $P$ can be diagonalized:
+$
+  P = U^(-1) D U
+$
+
+- $D$ = Diagonal matrix of eigenvalues
+- $U$ = Rows are corr. left eigenvectors
+- $U^(-1)$ = Columns are right eigenvectors
 
 Then
-$ P^m = U^(-1) D^m U $.
-$ D = mat(lambda_1, , , 0; , dots, ; 0, , , lambda_N) $
-$ D^m = mat(lambda_1^m, , , 0; , dots, ; 0, , , lambda_N^m) $
+
+$
+  P^m = U^(-1) D^m U
+$
+
+$
+  D = mat(
+    lambda_1, , , 0;
+    , dots, ;
+    0, , , lambda_N;
+  )
+$
+
+$
+  D^m = mat(
+    lambda_1^m, , , 0;
+    , dots, ;
+    0, , , lambda_N^m;
+  )
+$
 
 #pagebreak()
 
-*Useful if P can be diagonalized:*
+Useful if P can be diagonalized:
 
-$ P = U^(-1) D U, quad v P = lambda v, quad P u = lambda u $
+$
+  P = U^(-1) D U, v P = lambda v, P u = lambda u
+$
 
 $D$ = Diagonal matrix of eigenvalues
 $U$ = Rows are corresponding left eigenvectors
@@ -218,8 +252,10 @@ $ lim_(m->oo) P(X_m = i) = pi_i $
 
 Eg: Weather
 
-$ 0 equiv "Rainy" $
-$ 1 equiv "Sunny" $
+$
+  0 equiv "Rainy" \
+  1 equiv "Sunny"
+$
 
 $
   P = mat(
@@ -227,10 +263,16 @@ $
     .7, .3
   )
 $
-$ p = 0.6 $
-$ q = 0.7 $
 
-$ pi = (pi_0, pi_1) = (q/(p+q), p/(p+q)) $
-$ = (.7/1.3, .6/1.3) $
+$
+  p = 0.6 \
+  q = 0.7
+$
 
-$ therefore $ About 53.8% of days are rainy, and 46.2% are sunny.
+$
+  pi & = (pi_0, pi_1) \
+     & = (q/(p+q), p/(p+q)) \
+     & = (.7/1.3, .6/1.3)
+$
+
+$therefore$ About 53.8% of days are rainy, and 46.2% are sunny.

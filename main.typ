@@ -13,3 +13,4 @@
 
 #include "./lec03.typ"
 #include "./lec04.typ"
+#include "./lec14.typ"

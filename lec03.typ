@@ -207,6 +207,7 @@ $
 $
 
 #FIXME
+
 I.e. expected "#" bets & prob. of jackpot, starting with $\$x_0$.
 
 #pagebreak()
