@@ -1,0 +1,29 @@
+name: compile-and-upload
+on: push
+permissions:
+  contents: write
+
+env:
+  FILENAME: ${{ github.event.repository.name }}.pdf
+
+jobs:
+  compile-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup-typst
+        uses: typst-community/setup-typst@v4
+
+      - name: compile-fie
+        run: typst compile main.typ ${{ env.FILENAME }}
+
+      - name: upload-file
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ vars.SCP_HOST }}
+          username: ${{ vars.SCP_USERNAME }}
+          key: ${{ secrets.SCP_PRIVATE_KEY }}
+          source: ${{ env.FILENAME }}
+          target: ${{ vars.SCP_TARGET }}
