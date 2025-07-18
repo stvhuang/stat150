@@ -1,3 +1,5 @@
+#import emoji: face
+
 == Lecture 4
 
 Recall: $(X_n)_(n=0)^(oo)$ is a (time-homogenous) MC if
@@ -245,40 +247,30 @@ Where $pi = (pi_0, pi_1)$ is the left eigenvector for the leading eigenvalue $la
 #pagebreak()
 
 This suggests that — regardless of the initial state $X_0$ — the limiting distribution of this 2-state MC is
-$ lim_(m->oo) P(X_m = i) = pi_i $
 
-*We'll come back to this later (Main MC Theorem)*
+$
+  lim_(m->oo) P(X_m = i) = pi_i
+$
 
-This suggests that — regardless of the initial state $X_0$ — the limiting distribution of this 2-state MC is
-$ lim_(m->oo) P(X_m = i) = pi_i $
-
-*We'll come back to this later (Main MC Theorem)*
+- We'll come back to this later (Main MC Theorem)
 
 #pagebreak()
 
-Eg: Weather
-
-$
-  0 equiv "Rainy" \
-  1 equiv "Sunny"
-$
+Eg: $0 equiv "Rainy", quad 1 equiv "Sunny"$
 
 $
   P = mat(
     .4, .6;
     .7, .3
-  )
+  ), quad p = 0.6, q = 0.7
 $
 
 $
-  p = 0.6 \
-  q = 0.7
+  pi = (pi_0, pi_1) & = (q/(p+q), p/(p+q)) \
+                    & = (.7/1.3, .6/1.3)
 $
 
 $
-  pi & = (pi_0, pi_1) \
-     & = (q/(p+q), p/(p+q)) \
-     & = (.7/1.3, .6/1.3)
+  therefore "About" & "53.8% of days rainy," face.smile \
+                    & "46.2% days sunny." face.sad
 $
-
-$therefore$ About 53.8% of days are rainy, and 46.2% are sunny.
