@@ -271,6 +271,6 @@ $
 $
 
 $
-  therefore "About" & "53.8% of days rainy," face.smile \
-                    & "46.2% days sunny." face.sad
+  therefore "About" & "53.8% of days rainy" face.smile \
+                    & "46.2% of days sunny" face.sad
 $
