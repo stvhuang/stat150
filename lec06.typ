@@ -1,6 +1,6 @@
 == Lecture 6
 
-== Continuing [D] §1.3 — Classification of States
+Continuing [D] §1.3 — Classification of States
 
 *Main Idea*
 
@@ -47,7 +47,7 @@ $ therefore p_(x z)^(n+m) >= p_(y z)^n p_(x y)^m > 0 $. $qed$
 
 #pagebreak()
 
-== Eg: Gambler's Ruin
+Eg: Gambler's Ruin
 
 3 communication classes.
 $ C_0 = {0}, C_N = {N} $
@@ -72,7 +72,7 @@ $ therefore p_{x,x} < 1 ==> x $ is transient.
 
 #pagebreak()
 
-== Proof
+Proof
 
 Let $l = min{m: p_{x,y}^m > 0}$ be the length of the shortest path from $x$ to $y$. $l < oo$ since $x -> y$.
 
@@ -84,7 +84,7 @@ $ ==> rho_{x,x} < 1 ==> x $ is transient. $square$
 
 #pagebreak()
 
-== Eg: Gambler's Ruin
+Eg: Gambler's Ruin
 
 3 communication classes.
 
