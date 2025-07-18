@@ -12,6 +12,7 @@
   authors: ("Curated by Steven Huang (stvhuang.me@gmail.com)",),
   layout: "small",
   ratio: 4 / 3,
+  subtitle: [Last update: #datetime.today().display()],
   title: "UCBerkeley STAT150\nLecture Notes",
   title-color: rgb("#002676"),
 )
