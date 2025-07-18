@@ -249,7 +249,7 @@ Where $pi = (pi_0, pi_1)$ is the left eigenvector for the leading eigenvalue $la
 This suggests that — regardless of the initial state $X_0$ — the limiting distribution of this 2-state MC is
 
 $
-  lim_(m->oo) P(X_m = i) = pi_i
+  lim_(n->oo) P(X_n = i) = pi_i
 $
 
 - We'll come back to this later (Main MC Theorem)
