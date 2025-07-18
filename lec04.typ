@@ -1,5 +1,3 @@
-#import "misc.typ": FIXME
-
 == Lecture 4
 
 Recall: $(X_n)_(n=0)^(oo)$ is a (time-homogenous) MC if

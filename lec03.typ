@@ -1,5 +1,3 @@
-#import "misc.typ": FIXME
-
 == Lecture 3
 
 Markov Chains (MC)
