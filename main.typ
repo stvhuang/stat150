@@ -1,5 +1,8 @@
 #import "@preview/slydst:0.1.4": slides
 
+#set footnote(
+  numbering: "*",
+)
 #set text(
   font: "Libertinus Sans",
   size: 12pt,
@@ -10,6 +13,7 @@
   layout: "small",
   ratio: 4 / 3,
   title: "UCBerkeley STAT150\nLecture Notes",
+  title-color: rgb("#002676"),
 )
 
 #include "./lec03.typ"

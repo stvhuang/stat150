@@ -109,16 +109,19 @@ Please take a look. We'll do some today --- but not all of them.
 Examples: \
 (1) Simple Random Walk (SRW) on integers $ZZ = {0, plus.minus 1, plus.minus 2, ...}$, $p in (0,1)$.
 
-#FIXME diagram
-// $ dots arrow i-1 stack(rel: 0.5em, "q=1-p", leftarrow) i stack(rel: 0.5em, "p", rightarrow) i+1 arrow dots $
+#figure[
+  #image(
+    "./figs/p03_18m.png",
+    width: 40%,
+  )
+]
 
 $
   p_(i,j) = cases(
-    p & "for" j=i+1,
-    q & "for" j=i-1,
-    0 & "o/w"
-  ) \
-  (q=1-p)
+    p & quad j=i+1,
+    q & quad j=i-1 quad (q=1-p),
+    0 & quad "o/w",
+  )
 $
 
 - If $p=1/2$, *symmetric* SRW.
@@ -128,13 +131,13 @@ $
 I.e. each step of walk, we flip a coin that is heads w.p. $p$, tails w.p. $q=1-p$. If heads we step right, if tails we step left.
 
 $
-  S_n = sum_(k=0)^n xi_k, S_0 = 0
+  S_n = sum_(k=0)^n xi_k, quad S_0 = 0
 $
 
 $
   xi_1, xi_2, dots "IID" cases(
-    +1 & "w.p. " p,
-    -1 & "w.p. " q
+    +1 & quad "w.p." p,
+    -1 & quad "w.p." q,
   )
 $
 
@@ -143,14 +146,14 @@ $
 For any $n$,
 
 $
-  & P(S_(n+1) = j | S_n=underline(i), S_(n-1)=underline(s_(n-1)), ..., S_0=underline(s_0)) \
-  &= P(S_(n+1)=j | S_n=i) \
-  &= P(xi_(n+1) = j-i) \
-  &= cases(
-    p & "for " j=i+1,
-    q & "for " j=i-1,
-    0 & "o/w"
-  )
+  & P(S_(n+1) = j | S_n=i, S_(n-1)=s_(n-1), ..., S_0=s_0) \
+  & = P(S_(n+1)=j | S_n=i) \
+  & = P(xi_(n+1) = j-i) \
+  & = cases(
+      p & quad "for" j=i+1,
+      q & quad "for" j=i-1,
+      0 & quad "o/w"
+    )
 $
 
 $therefore$ $(X_n)$ is a time-hom. MC.
@@ -159,15 +162,20 @@ $therefore$ $(X_n)$ is a time-hom. MC.
 
 State space $ZZ$ is infinite:
 
-#FIXME: matrix
+#figure[
+  #image(
+    "./figs/p03_26m.png",
+    width: 80%,
+  )
+]
 
-$i,j$"th entry = $p_(i,j)$ for $i,j in ZZ$.
+$i,j$'th entry = $p_(i,j)$ for $i,j in ZZ$.
 
 #pagebreak()
 
 (2) Gambler's Ruin
 
-SRW with #emph[absorbing states] at 0 and N.
+SRW with *absorbing states* at $0$ and $N$.
 
 Def: A state $i in S$ is absorbing if $p(i,i) = 1$.
 
@@ -175,20 +183,23 @@ I.e. once in state $i$, MC will stay there forever.
 
 #pagebreak()
 
-#FIXME diagram
-// $ 0 underbrace(->, "1") -> 1 underbrace(<-, "q") long-arrow-right underbrace(right.arrow, "p") i underbrace(left.arrow, "q") long-arrow-right underbrace(right.arrow, "p") i+1 long-arrow-right dots N underbrace(left.arrow, "1") $
+#figure[
+  #image(
+    "./figs/p03_28m.png",
+    width: 80%,
+  )
+]
 
 $
   & p_(0,0) = p_(N,N) = 1 \
   & p_(i, i+1) = p, quad 1 <= i < N \
-  & p_(i, i-1) = q \
+  & p_(i, i-1) = q, quad 1 <= i < N \
   & p_(i,j) = 0, quad "o/w."
 $
 
 #pagebreak()
 
 Called Gambler's Ruin because:
-
 - Start with $\$X_0$.
 - Each step bet $\$1$. Win $\$1$ w.p. $p$, lose $\$1$ w.p. $q$.
 - Until either win jackpot $\$N$ or go bust $\$0$ --- and then stop playing either way.
@@ -205,13 +216,11 @@ $
 For a given $1 <= x_0 < N$,
 
 $
-  & E_(x_0)(T) = E(T|X_0=x_0) \
-  & P_(x_0)(T=N) = P(T=N|X_0=x_0)
+  & "Question:" E_(x_0)(T)#footnote[Expected value conditioned on starting point being $x_0$.] = E(T|X_0=x_0) \
+  & "Question:" P_(x_0)(T=N) = P(T=N|X_0=x_0)
 $
 
-#FIXME
-
-I.e. expected "#" bets & prob. of jackpot, starting with $\$x_0$.
+I.e. expected \# bets & prob. of jackpot, starting with $\$x_0$.
 
 #pagebreak()
 
@@ -220,6 +229,11 @@ I.e. expected "#" bets & prob. of jackpot, starting with $\$x_0$.
 
 #pagebreak()
 
-#FIXME matrix
+#figure[
+  #image(
+    "./figs/p03_37m.png",
+    width: 85%,
+  )
+]
 
-$i,j$"th entry = $p_(i,j)$ for $0 <= i,j <= N$.
+$i,j$'th entry = $p_(i,j)$ for $0 <= i,j <= N$.
