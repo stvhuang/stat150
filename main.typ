@@ -1,7 +1,7 @@
 #import "@preview/slydst:0.1.4": slides
 
 #set footnote(
-  numbering: "*",
+  numbering: "[1]",
 )
 #set text(
   font: "Libertinus Sans",
