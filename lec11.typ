@@ -1,6 +1,6 @@
 == Lecture 11
 
-== Metropolis-Hastings Algorithm
+Metropolis-Hastings Algorithm
 
 Used in bayesian statistics, image reconstruction, for studying complicated statistical physics models, etc...
 
@@ -64,7 +64,7 @@ $ therefore lim_(n -> oo) P(X_n = i) = pi_i $, as desired.
 
 #pagebreak()
 
-== Example: Generating samples from Geometric($lambda$), $lambda in (0,1)$, using SRW.
+Example: Generating samples from Geometric($lambda$), $lambda in (0,1)$, using SRW.
 
 Then $pi_i = P("Geometric"(lambda) = i)$
 $ = lambda^i (1-lambda) $, $i=0,1,...$

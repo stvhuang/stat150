@@ -1,6 +1,6 @@
 == Lecture 8
 
-== §1.4-1.6: Stationary Distributions
+§1.4-1.6: Stationary Distributions
 
 Main result here is that if
 1. $abs(S) < infinity$
@@ -165,7 +165,7 @@ $ therefore pi = pi P $. $quad$
 
 #pagebreak()
 
-== Detailed Balance Equations
+Detailed Balance Equations
 
 Suppose that for some $pi=(pi_1, ..., pi_m)$
 $ pi_i p_(i j) = p_(i_j) p_(j i) quad "for all " i, j quad ("DB") $

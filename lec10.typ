@@ -32,7 +32,7 @@ Can try to solve $ pi = pi P $ directly.
 
 #pagebreak()
 
-== Normalizing method
+Normalizing method
 
 1. First find $ x_i P_(i j) = x_j P_(j i) $ for all $i, j$.
 

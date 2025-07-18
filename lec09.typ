@@ -1,6 +1,6 @@
 == Lecture 9
 
-== Eg: Recall the Ehrenfest chain
+Eg: Recall the Ehrenfest chain
 
 $N$ molecules separated by a thin membrane into 2 chambers. Sometimes a molecule slips through.
 
@@ -18,7 +18,7 @@ $
 
 #pagebreak()
 
-== Intuition
+Intuition
 
 In the long run as $n -> oo$, any given particle should be approximately equally likely to be in either chamber.
 
@@ -123,7 +123,7 @@ As $n->oo$, $X_n/N approx 1/2$. Small fluctuations in here.
 
 #pagebreak()
 
-== Reversible mc's
+Reversible mc's
 
 The Markov process is symmetric in time:
 "Given current state, past & future are independent."
@@ -143,7 +143,7 @@ $ quad X_N quad X_(N-1) X_0 $
 
 #pagebreak()
 
-== Theorem
+Theorem
 Suppose $(X_n)$ has stationary distribution $pi$. Then the backwards chain
 $ (Y_n = X_(N-n))_(n=0)^N $
 

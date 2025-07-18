@@ -1,6 +1,6 @@
 == Lecturee 7
 
-== Definition: Accessible
+Definition: Accessible
 
 We say that $y$ is *accessible* from $x$, and we write $x -> y$, if
 $ rho_(x y) = P_x(T_y < oo) > 0. $
@@ -13,7 +13,7 @@ $ P_(x y)^m > 0 " for some " m > 0. $
 
 #pagebreak()
 
-== Definition: Communicate
+Definition: Communicate
 
 We say that $x$ and $y$ *communicate*, $x <-> y$, if $x -> y$ and $y -> x$. We trivially define all $x <-> x$.
 
@@ -163,12 +163,12 @@ $ therefore y " is REC." $
 
 *Durrett p15-17 prove these previous results + more:*
 
-== Definition: Closed
+Definition: Closed
 
 A subset $C subset S$ of the state space is *closed* if you can't get out once in:
 $ i in C, j not in C => P_(i j) = 0 $
 
-== Definition: Irreducible
+Definition: Irreducible
 
 A set $A subset S$ is *irreducible* if for all $i,j in A => i <-> j$.
 
@@ -182,7 +182,7 @@ To prove this now, using what we already know, we just need to make the followin
 
 #pagebreak()
 
-== Observation
+Observation
 
 Suppose $C subset S$ is *finite* and *closed*. Then at least one state is recurrent.
 
@@ -190,7 +190,7 @@ This is sort of obvious. Once in $C$ you are stuck there forever. There are only
 
 #pagebreak()
 
-== Another class property
+Another class property
 
 *Definition.* The *period* of a state $x$ is
 $ "g.c.d." { m >= 1 : P_(x x)^m > 0 }. $
@@ -213,7 +213,7 @@ where "g.c.d." is the *greatest common divisor*.
 
 #pagebreak()
 
-== Theorem
+Theorem
 
 *Aperiodicity is a class property.*
 
@@ -223,7 +223,7 @@ I.e. all states in the same comm. class have the same period.
 
 #pagebreak()
 
-== A useful observation
+A useful observation
 
 If in the tr. diagram there is a "loop" at $x$:
 // A diagram showing a state x with a loop back to itself.
@@ -235,7 +235,7 @@ Why?
 
 #pagebreak()
 
-== [D] §1.4 — Stationary distributions
+[D] §1.4 — Stationary distributions
 
 The main result here is that if $(X_n)$ on $|S| < oo$:
 1. Aperiodic
