@@ -1,4 +1,4 @@
-== Lecturee 7
+== Lecture 7
 
 Definition: Accessible
 

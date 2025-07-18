@@ -19,8 +19,7 @@ $E_j T_j$ = mean return time to $j$
 
 $ lim_(n -> infinity) (N_n(j)) / n = 1 / (E_j T_j) = pi_j $
 
-Therefore, $pi_j$ = long-run proportion of time in $j$ \
-= inverse mean return time to $j$.
+Therefore, $pi_j$ = long-run proportion of time in $j$ = inverse mean return time to $j$.
 
 So $pi$ tells us about the long-run behavior of a Markov chain.
 
