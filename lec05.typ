@@ -130,18 +130,17 @@ To formalize this reasoning, we introduce the idea of a *stopping time*, which w
   radius: 4pt,
   [
     *Def.* $T$ is a *stopping time* (ST) if only the values of $X_0, X_1, ..., X_n$ are needed to determine if the event ${T=n}$ has occurred.
-  ]
+  ],
 )
 
 #pagebreak()
 
-== Eg SRW. $X_0 = 0$.
+Eg SRW. $X_0 = 0$.
 
-- $T = T_1 = 1^(st)$ visit to 1.
+- $T = T_1 = 1^(s_t)$ visit to 1.
   Is a ST.
 
-- $T = min {n >= 1: X_(n+1) = 1}$
-  = time just before first visit to 1.
+- $T = min {n >= 1: X_(n+1) = 1}$ = time just before first visit to 1.
   Is *not* a ST, since eg. knowing $(X_0, X_1) = (0, -1)$ is not enough to determine if $T=1$.
 
 #pagebreak()
@@ -156,7 +155,7 @@ The *strong Markov property* is the fact that the Markov property also holds at 
   radius: 4pt,
   [
     *Theorem.* $(X_n)_(n>=0)$ a MC, $T$ a ST. Given $T=n$ and $X_T=y$, $(X_(T+k))_(k>=0)$ is a MC started at $y$.
-  ]
+  ],
 )
 
 #pagebreak()
@@ -167,7 +166,9 @@ $ P(X_(T+1) = z | X_T=y, T=n) = p_(y z). $
 #pagebreak()
 
 By the strong MP, indeed
-$ P_y(T_y^k < oo) underbrace(, "time of " k^"th" " visit after time 0") = P("at least " k " visits") = rho_(y y)^k. $
+$
+  P_y(T_y^k < oo) underbrace(, "time of " k^"th" " visit after time 0") = P("at least " k " visits") = rho_(y y)^k.
+$
 
 #block(
   inset: 8pt,
@@ -175,14 +176,14 @@ $ P_y(T_y^k < oo) underbrace(, "time of " k^"th" " visit after time 0") = P("at 
   radius: 4pt,
   [
     If $rho_(y y) < 1$, $P_y(T_y^k < oo) -> 0$
-  ]
+  ],
 )
 
 As $k -> oo$. So total \# visits to $y$ is $< oo$ (w.p. 1).
 
 #pagebreak()
 
-*Why?* # visits to $y$ after time 0 is Geometric($1-rho_(y y)$):
+*Why?* \# visits to $y$ after time 0 is Geometric($1-rho_(y y)$):
 $ P("#visits" = k) = rho_(y y)^k (1-rho_(y y)), k=0,1,... $
 $ therefore E("#visits") = rho_(y y) / (1-rho_(y y)) < oo $
 
@@ -197,7 +198,7 @@ On the other hand,
   radius: 4pt,
   [
     If $rho_(y y)=1$, then if started from $y$ the MC will visit $y$ $oo$ many times (wp 1).
-  ]
+  ],
 )
 
 #pagebreak()
@@ -224,7 +225,8 @@ $
 
 A more surprising fact --- which we'll prove later on --- is that for SRW on $ZZ$, all states are recurrent.
 
-* Also true on $ZZ^2$.
+*
+Also true on $ZZ^2$.
 * But all states transient for SRW on $ZZ^d, d >= 3$.
 
 "A wandering walker finds their way home, but not so for a bird".
