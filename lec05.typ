@@ -23,7 +23,7 @@ For all $n, m >= 0$ & $i,j in S$.
 
 #pagebreak()
 
-== CK Equations
+CK Equations
 
 $ p_(i j)^(m+n) = sum_k p_(i k)^m p_(k j)^n $
 
@@ -65,7 +65,7 @@ $
 
 #pagebreak()
 
-== [P] §1.3: Classification of states
+[P] §1.3: Classification of states
 
 Many interesting questions about MC's involve their long-run (LR) behavior. We saw some examples last class.
 
