@@ -210,43 +210,42 @@ $
 
 
 - #diagram(edge-stroke: 1pt, node-stroke: 1pt, {
-  let (A, B) = ((0, 0), (1, 0))
+    let (A, B) = ((0, 0), (1, 0))
 
-  node(A, $1$)
-  node(B, $2$)
-  edge(A, B, "->", bend: 20deg)
-  edge(B, A, "->", bend: 20deg)
-}) $1$, $2$ have period 2
+    node(A, $1$)
+    node(B, $2$)
+    edge(A, B, "->", bend: 20deg)
+    edge(B, A, "->", bend: 20deg)
+  }) $1$, $2$ have period 2
 - #diagram(edge-stroke: 1pt, node-stroke: 1pt, {
-  let (A, B) = ((0, 0), (1, 0))
+    let (A, B) = ((0, 0), (1, 0))
 
-  node(A, $1$)
-  node(B, $2$)
-  edge(A, A, "->", bend: -135deg, loop-angle: -90deg)
-  edge(A, B, "->", bend: 20deg)
-  edge(B, A, "->", bend: 20deg)
-}) $1$, $2$ aperiodic
+    node(A, $1$)
+    node(B, $2$)
+    edge(A, A, "->", bend: -135deg, loop-angle: -90deg)
+    edge(A, B, "->", bend: 20deg)
+    edge(B, A, "->", bend: 20deg)
+  }) $1$, $2$ aperiodic
 - #diagram(edge-stroke: 1pt, node-stroke: 1pt, {
-  let (A, B, C) = ((0, 1), (0.8, 0), (1.6, 1))
+    let (A, B, C) = ((0, 1), (0.8, 0), (1.6, 1))
 
-  node(A, $1$)
-  node(B, $2$)
-  node(C, $3$)
-  edge(A, B, "->", bend: 45deg)
-  edge(B, A, "->")
-  edge(B, C, "->")
-  edge(C, A, "->")
-}) $1$, $2$, $3$ aperiodic
+    node(A, $1$)
+    node(B, $2$)
+    node(C, $3$)
+    edge(A, B, "->", bend: 45deg)
+    edge(B, A, "->")
+    edge(B, C, "->")
+    edge(C, A, "->")
+  }) $1$, $2$, $3$ aperiodic, $p_(3 3)^3>0, p_(3 3)^5>0, gcd{3, 5, dots} = 1$
 
 #pagebreak()
 
 Theorem
-
-*Aperiodicity is a class property.*
+Aperiodicity is a class property.
 
 I.e. all states in the same comm. class have the same period.
 
-*Proof.* Think about it yourself. Might be on HW or in workshop. $qed$
+Proof. Think about it yourself. Might be on HW or in workshop.
 
 #pagebreak()
 
@@ -254,21 +253,32 @@ A useful observation
 
 If in the tr. diagram there is a "loop" at $x$:
 // A diagram showing a state x with a loop back to itself.
-[i.e. $P_(x x) > 0$] // Pos. entry on diagonal of P
 
-Then $C_x =$ class of $x$ is *aperiodic*.
+$
+  #diagram(edge-stroke: 1pt, node-stroke: 1pt, {
+    let (A) = (0, 0)
+
+    node(A, $1$)
+    edge(A, A, "->", bend: -135deg, loop-angle: -90deg)
+  }) quad "[i.e." p_(x x) > 0"]"#footnote[Pos. entry on diagonal of $P$.]
+$
+
+Then $C_x =$ class of $x$ is aperiodic.
 
 Why?
 
 #pagebreak()
 
-[D] §1.4 — Stationary distributions
+[D] §1.4 --- Stationary distributions
 
 The main result here is that if $(X_n)$ on $|S| < oo$:
 1. Aperiodic
 2. Irreducible (only 1 class)
 
 Then $(X_n)$ has a SD $pi$:
-$ lim_(n->oo) P_(i j)^n = pi_j $
 
-// We'll prove this later. For now we just assume it.
+$
+  lim_(n->oo) p_(i j)^n = pi_j#footnote[$pi = (pi_1, pi_2, dots, pi_m), |S|=m$]#footnote[=LR prop. of time spent in state $j$, does not depends on $X_0$.]
+$
+
+We'll prove this later. For now we just assume it.
