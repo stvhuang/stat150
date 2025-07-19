@@ -21,30 +21,37 @@ $
 Intuition: In the long run as $n -> oo$, any given particle should be approximately equally likely to be in either chamber.
 
 $
-  & therefore X_n = #"# in 1st chamber" approx.eq "Bin"(N, 1/2) \
+  & therefore X_n = #"# in 1st chamber" approx "Bin"(N, 1/2) \
   & therefore P(X_n = i) approx binom(N, i) (1/2)^i (1/2)^(N-i) = binom(N, i) / 2^N \
   & therefore "Expect " pi_i = lim_(n->oo) P(X_n=i) = binom(N, i)/2^N#footnote[Prob. a uniform random subset is size $i$.]
 $
 
 #pagebreak()
 
-It is somewhat involved to solve $pi = pi underline(P)$ for this Markov chain. It is easier to use the detailed balance equations.
+It is somewhat involved to solve $pi = pi underline(P)$ for this Markov chain.
+It is easier to use the DBE.
 
-*But* why should we expect $pi_i P_(i,j) = pi_j P_(j,i) forall i,j$ to hold for this Markov chain?
+*But* why should we Expect
+
+$
+  pi_i p_(i j) = pi_j p_(j i) quad forall i,j
+$
+
+to hold for this MC?
 
 #pagebreak()
 
 $pi_i$ = long-run prop. of time spent in state $i$
 
-$pi_i P_(i,j)$ = long-run prop. of transitions made by mc from $i -> j$
+$pi_i p_(i j)$ = long-run prop. of transitions made by MC from $i -> j$
 
-$pi_j P_(j,i)$ = long-run prop. of transitions made by mc from $j -> i$
+$pi_j p_(j i)$ = long-run prop. of transitions made by MC from $j -> i$
 
-*Note:* only possible transitions are $i -> i plus.minus 1$ (all other $P_(i,j)=0$)
+*Note:* only possible transitions are $i -> i plus.minus 1$ (all other $p_(i j)=0$)
 
 #pagebreak()
 
-*Also:* every time the Markov chain transitions $i -> i+1$, it must first make a transition $i+1 -> i$ before it can make another $i -> i+1$ again.
+*Also:* every time the MC transitions $i -> i+1$, it must first make a transition $i+1 -> i$ before it can make another $i -> i+1$ again.
 
 $therefore$ At all times $n$, the number of transitions from $i -> j$ and the number of transitions from $j -> i$ made by time $n$ are equal up to $plus.minus 1$.
 
@@ -52,145 +59,133 @@ $therefore$ At all times $n$, the number of transitions from $i -> j$ and the nu
 
 That is, for any $n$,
 
-// TODO #
-//
 $
-  (i -> j " by time " n)/n = (j -> i " by time " n)/n plus.minus 1/n
+  \#(i -> j "by time" n)/n = (\#(j -> i "by time" n) plus.minus 1)/n#footnote[$(plus.minus 1) / n -> 0$]
 $
 
 Taking $n -> oo$,
 
 $
-  pi_i P_(i,j) = pi_j P_(j,i) quad "(DBE)"
+  pi_i p_(i j) = pi_j p_(j i) quad "(DBE)"
 $
 
 #pagebreak()
 
-Next we use the detailed balance equations to verify that $pi = (pi_1, ..., pi_N)$ is the stationary distribution ($pi = pi P$) where
-
-$
-  pi_i = binom(N, i) / 2^N .
-$
-
-Checks:
-
-$
-  binom(N, i)/2^N P_(i,i+1) "TODO"(?) = binom(N, i+1)/2^N P_(i+1,i)
-$
-
-#pagebreak()
-
-$
-  binom(N, i)/cancel(2^N) P_(i,i+1) "TODO"(?) = binom(N, i+1)/cancel(2^N) P_(i+1,i)
-$
-
-$
-  binom(N, i) (1-i/N) "TODO"(?) = binom(N, i+1) (i+1)/N
-$
-
-$
-  (N!)/(i!(N-i)!) (N-i)/N "TODO"(?) = (N!)/((i+1)!(N-i-1)!) (i+1)/N
-$
-
-$
-  1/(i!(N-i-1)!) = 1/(i!(N-i-1)!)
-$ $checkmark$
-
-#pagebreak()
-
-$therefore$ Since detailed balance implies stationary distribution, we know therefore
-
-$
-  pi = pi P
-$
-
-where
-
-$
-  pi = ( binom(N, 1)/2^N, binom(N, 2)/2^N, ..., binom(N, N)/2^N )
-$
-
-#pagebreak()
+Next we use the DBE to verify that $pi = (pi_1, dots, pi_N)$ is the SD ($pi = pi P$) where#footnote[Last class: DB $=>$ SD]
 
 $
   pi_i = binom(N, i) / 2^N
 $
 
-$
-  = lim_(n->oo) P(X_n = i)
-$
+Check:#footnote[Can assume $|i-j|=1$, since otherwise $p_(i j)=p_(j i)=0$. So can assume $j=i+1$]
 
 $
-  = "long-run proportion of time spent in state " i
-$
-$
-  (i " molecules in 1st chamber")
+  binom(N, i)/2^N p_(i,i+1) =^? binom(N, i+1)/2^N p_(i+1,i)
 $
 
 #pagebreak()
 
-For a gas, $N approx 10^24$.
+$
+  binom(N, i)/cancel(2^N) p_(i,i+1) &=^? binom(N, i+1)/cancel(2^N) p_(i+1,i) \
+  binom(N, i) (1-i/N) &=^? binom(N, i+1) (i+1)/N \
+  cancel(N!)/(i!(N-i)!) (N-i)/cancel(N) &=^? cancel(N!)/((i+1)!(N-i-1)!) (i+1)/cancel(N) \
+  1/(i!(N-i-1)!) &= 1/(i!(N-i-1)!) quad checkmark
+$
 
-pmf of $pi tilde "Bin"(10^24, 1/2)$:
+#pagebreak()
 
-// A plot showing the distribution centered at $10^24/2$.
-// The distribution has small fluctuations of size $O(10^12)$.
+$therefore$ Since DB $=>$ SD, we know therefore
+
+$
+  pi = pi underline(P)
+$
+
+where
+
+$
+  pi = ( binom(N, 1)/2^N, binom(N, 2)/2^N, dots, binom(N, N)/2^N )
+$
+
+#pagebreak()
+
+$
+  pi_i & = binom(N, i) / 2^N \
+       & = lim_(n->oo) P(X_n = i) \
+       & = "long-run proportion of time spent in state" i \
+       & quad (i "molecules in 1st chamber")
+$
+
+#pagebreak()
+
+For a gas, $N approx 10^24$ \
+PMF of $pi ~ "Bin"(10^24, 1/2)$:
+
+#figure[
+  #image(
+    "./figs/p09_32m.png",
+    width: 60%,
+  )
+]
 
 \# molecules in 1st chamber (large $n$)
-$
-  = 500,000,000, ...
-$
 
-As $n->oo$, $X_n/N approx 1/2$. Small fluctuations in here.
+$
+  = 500,000,000,000,dots,dots,dots,dots#footnote[As $n->oo$, $X_n/N approx 1/2$. Small fluctuations in here.]
+$
 
 #pagebreak()
 
-Reversible mc's
+Reversible MC's
 
-The Markov process is symmetric in time:
+The MP is symmetric in time:
 "Given current state, past & future are independent."
 
-However, convergence to a stationary distribution is not. Typically, as $n->oo$, organized $->$ disorganized state.
+However, convergence to a stationary distribution is not.
+Typically, as $n->oo$, organized $->$ disorganized state.
 
-Eg. Ehrenfest chain: $X_0=N$ (all in 1st chamber). As $n->oo$, molecules in 1st or 2nd chambers with probability $1/2, 1/2$.
-
-#pagebreak()
-
-This suggests that if we want to get time symmetry, we must start from the stationary distribution: $X_0 tilde pi$.
-
-*Def*: Let $(X_n)_(n=0)^N$ be a Markov chain run up to time $N$. Then $Y_n = X_(N-n)$ is called the *backwards chain*.
-
-$
-  Y_n = (Y_0, Y_1, ..., Y_N)
-$
-$
-  quad X_N quad X_(N-1) X_0
-$
+Eg. Ehrenfest chain: $X_0=N$ (all in 1st chamber).
+As $n->oo$, molecules in 1st or 2nd chambers wp $1/2, 1/2$.
 
 #pagebreak()
 
-Theorem
-Suppose $(X_n)$ has stationary distribution $pi$. Then the backwards chain
+This suggests that if we want to get time symmetry, we must start from the stationary distribution: $X_0 ~ pi$.
+
+*Def*: Let $(X_n)_(n=0)^N$ be a MC run up to time $N$.
+Then $Y_n = X_(N-n)$ is called the *backwards chain*.
+
+$
+  (Y_n)_(n=0)^N = ( & Y_0, quad quad &      Y_1, & dots dots dots, &  Y_N) \
+                    & = X_N          & = X_(N-1) &                 & = X_0
+$
+
+#pagebreak()
+
+*Theorem* Suppose $(X_n)$ has SD $pi$.
+$X_n ~ pi$.
+Then the backwards chain
+
 $
   (Y_n = X_(N-n))_(n=0)^N
 $
 
-1. is a Markov chain
-2. has stationary distribution $pi$
-3. has transition probabilities
+1. Is a MC
+2. Has SD $pi$
+3. Has transition probabilities
+
 $
-  q_(i,j) = P_(j,i) pi_j/pi_i
+  q_(i j) = p_(j i) pi_j/pi_i
 $
 
 #pagebreak()
 
-*Proof*: Will be on HW #2.
+Proof: Will be on HW \#2.
 
-*Note*: If $(X_n)$ satisfies the detailed balance equations,
+Note: If $(X_n)$ satisfies the DBE,
+
 $
-  q_(i,j) = P_(j,i) pi_j/pi_i = P_(i,j)
+  q_(i j) = p_(j i) pi_j/pi_i = p_(i j)
 $
 
 In this case, we call $(X_n)$ *time reversible*.
 
-If you watch a movie of $(X_n)$ started from equilibrium $X_0 tilde pi$, you won't be able to tell if time is moving forward or backward.
+If you watch a movie of $(X_n)$ started from equilibrium $X_0 ~ pi$, you won't be able to tell if time is moving forward or backward.
