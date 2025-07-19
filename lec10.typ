@@ -1,7 +1,9 @@
 == Lecture 10
 
 *EG* Prof has 3 umbrellas. Each day
-$ "TODO" ("am")^("pm") "TODO" $
+$
+  "TODO" ("am")^("pm") "TODO"
+$
 
 Rains w.p. $p$ on each trip.
 
@@ -16,7 +18,9 @@ Takes umbrella if raining & has one at current location (o/w gets wet).
 
 #pagebreak()
 
-$ X_n = \# "umbrellas at current location" $
+$
+  X_n = \# "umbrellas at current location"
+$
 
 $
   0 "TODO"(1-p)^1 3 "TODO"^p 1 "TODO"(1-p)^(1-p) 2 "TODO"(p)
@@ -46,16 +50,28 @@ $
   0 "TODO"(1-p)^1 3 "TODO"^p 1 "TODO"(1-p)^(1-p) 2 "TODO"(p)
 $
 
-$ x_0 = (1-p) x_3 $
-$ x_3 p = x_1 p $
-$ x_1 (1-p) = x_2 (1-p) $
+$
+  x_0 = (1-p) x_3
+$
+$
+  x_3 p = x_1 p
+$
+$
+  x_1 (1-p) = x_2 (1-p)
+$
 
-$ => x_1 = x_2 = x_3 $
-$ x_0 = (1-p) x_3 $
+$
+  => x_1 = x_2 = x_3
+$
+$
+  x_0 = (1-p) x_3
+$
 
 Since we will normalize after, it doesn't matter which $x_i$ we take, as long as $!= 0$. $x_1 = 1$ is easy:
 
-$ x = (1-p, 1, 1, 1) ==> pi = ( (1-p)/(4-p), 1/(4-p), 1/(4-p), 1/(4-p) ) $
+$
+  x = (1-p, 1, 1, 1) ==> pi = ( (1-p)/(4-p), 1/(4-p), 1/(4-p), 1/(4-p) )
+$
 
 #pagebreak()
 
@@ -68,7 +84,9 @@ $ x = (1-p, 1, 1, 1) ==> pi = ( (1-p)/(4-p), 1/(4-p), 1/(4-p), 1/(4-p) ) $
 
 This is $pi_0 p$ = long-run prop. of times it is raining in his current location before the next trip.
 
-$ pi_0 p = (p(1-p))/(4-p) $
+$
+  pi_0 p = (p(1-p))/(4-p)
+$
 
 // A plot of $pi_0 p$ vs $p$ shows a downward-opening parabola on the interval $[0, 1]$.
 // An arrow points to the curve, labeled "Worst climate for prof."
@@ -94,9 +112,13 @@ You can use this to find $pi$.
 #pagebreak()
 
 DB: $ pi_l p_l = pi_(l+1) q_(l+1) $
-$ => pi_(l+1) = pi_l p_l/q_(l+1) $
+$
+  => pi_(l+1) = pi_l p_l/q_(l+1)
+$
 
-$ pi_(l+1) p_(l+1) = pi_(l+2) q_(l+2) $
+$
+  pi_(l+1) p_(l+1) = pi_(l+2) q_(l+2)
+$
 $
   => pi_(l+2) = pi_(l+1) p_(l+1)/q_(l+2) = pi_l (p_l p_(l+1))/(q_(l+1) q_(l+2))
 $
@@ -132,10 +154,14 @@ $ => pi = ( 1/(b-a+1), ..., 1/(b-a+1) ) $ (Uniform)
 
 We need $ sum_(i=0)^(b-a) pi_(a+i) = 1 $, so
 
-$ 1/pi_a = sum_(i=0)^(b-a) (p/q)^i = ((p/q)^(b-a+1) - 1) / (p/q - 1) $
+$
+  1/pi_a = sum_(i=0)^(b-a) (p/q)^i = ((p/q)^(b-a+1) - 1) / (p/q - 1)
+$
 
 Therefore,
-$ pi_(a+i) = (p/q - 1) / ((p/q)^(b-a+1) - 1) (p/q)^i $
+$
+  pi_(a+i) = (p/q - 1) / ((p/q)^(b-a+1) - 1) (p/q)^i
+$
 
 #pagebreak()
 
@@ -169,7 +195,9 @@ Let $(Y_n)$ be a MC on $S$ with tr. prob. $q_(i j)$.
 #pagebreak()
 
 In other words, if $(X_n)$ is currently at $i$, we select a possible next transition according to what $(Y_n)$ would do ($i -> j$ w.p. $q_(i j)$), *however* we accept this transition only with probability
-$ r_(i j) = min { (pi_j q_(j i)) / (pi_i q_(i j)), 1 } $
+$
+  r_(i j) = min { (pi_j q_(j i)) / (pi_i q_(i j)), 1 }
+$
 Otherwise we stay at $i$ in this step.
 
 #pagebreak()

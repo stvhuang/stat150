@@ -20,13 +20,17 @@ Then let $(X_n)$ be the mc on $S$ with tr. prob.
 
 $ p_(i j) = q_(i j) r_(i j) $, where
 
-$ r_(i j) = min { (p_(i_j) q_(j i)) / (pi_i q_(i j)) , 1 } $
+$
+  r_(i j) = min { (p_(i_j) q_(j i)) / (pi_i q_(i j)) , 1 }
+$
 
 #pagebreak()
 
 In other words, if $(X_n)$ is currently at $i$, we select a possible next transition according to what $(Y_n)$ would do ($i -> j$ w.p. $p_(j i)$), *however* we accept this transition only with probability
 
-$ r_(j i) = min { (pi_j q_(j i)) / (pi_i q_(j i)) , 1 } $
+$
+  r_(j i) = min { (pi_j q_(j i)) / (pi_i q_(j i)) , 1 }
+$
 
 Otherwise, we stay at $i$ in this step.
 
@@ -35,7 +39,9 @@ Otherwise, we stay at $i$ in this step.
 Then $(X_n)$ has s.d. $pi$.
 
 To see this we check DB:
-$ pi_i p_(j i) = pi_j p_(j i) quad forall i, j $
+$
+  pi_i p_(j i) = pi_j p_(j i) quad forall i, j
+$
 
 Recall $p_(j i) = q_(j i) r_(j i) = q_(j i) min { (pi_j q_(j i)) / (pi_i q_(j i)) , 1 }$.
 
@@ -45,12 +51,22 @@ $ r_(j i) = (pi_j q_(j i)) / (pi_i q_(j i)) $ and $r_(j i) = 1$.
 
 #pagebreak()
 
-$ therefore pi_i p_(j i) = pi_i q_(j i) r_(j i) $
-$ = pi_i q_(j i) (pi_j q_(j i)) / (pi_i q_(j i)) $
-$ = pi_j q_(j i) $
+$
+  therefore pi_i p_(j i) = pi_i q_(j i) r_(j i)
+$
+$
+  = pi_i q_(j i) (pi_j q_(j i)) / (pi_i q_(j i))
+$
+$
+  = pi_j q_(j i)
+$
 
-$ pi_j p_(j i) = pi_j q_(j i) r_(j i) $
-$ = pi_j q_(j i) $
+$
+  pi_j p_(j i) = pi_j q_(j i) r_(j i)
+$
+$
+  = pi_j q_(j i)
+$
 
 $ => pi_i p_(j i) = pi_j p_(j i) $.
 
@@ -71,7 +87,9 @@ $ = lambda^i (1-lambda) $, $i=0,1,...$
 
 $(X_n)$ SRW: $ q_(j i) = { 1/2 " if " j = i+-1; 0 " o/w" $
 
-$ r_(j i) = min {1, (pi_j q_(j i)) / (pi_i q_(j i))} = min {1, lambda^(j-i)} $
+$
+  r_(j i) = min {1, (pi_j q_(j i)) / (pi_i q_(j i))} = min {1, lambda^(j-i)}
+$
 
 #pagebreak()
 
@@ -98,7 +116,9 @@ Suppose $(X_n)$ is irreducible and  rec. Then it has a stationary measure $mu >=
 *Note:* We don't assume $|S| < oo$ above.
 
 However, if $|S| < oo$ then the stationary measure $mu$ can be normalized to get a s.d.:
-$ pi_i = mu_i / (sum_j mu_j) $
+$
+  pi_i = mu_i / (sum_j mu_j)
+$
 
 Then $pi >= 0$, $sum_i pi_i = 1$, & $pi = pi P$.
 
@@ -121,6 +141,10 @@ To prove theorem 1.19, we need:
 If $(X_n)$ has a s.d. $pi$ (i.e. $pi=pi P$ & $sum_i pi_i = 1$) then all states with $pi_j > 0$ are rec.
 
 *Proof.* From previous lectures,
-$ E_i N_j = sum_(n=1)^oo p_(i j)^n $
+$
+  E_i N_j = sum_(n=1)^oo p_(i j)^n
+$
 
-$ therefore sum_i pi_i E_i N_j = sum_i pi_i sum_(n=1)^oo p_(i j)^n $
+$
+  therefore sum_i pi_i E_i N_j = sum_i pi_i sum_(n=1)^oo p_(i j)^n
+$
