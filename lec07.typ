@@ -1,32 +1,36 @@
+#import "@preview/fletcher:0.5.8": diagram, edge, node
+
 == Lecture 7
 
-Definition: Accessible
-
-We say that $y$ is *accessible* from $x$, and we write $x -> y$, if
-$ rho_(x y) = P_x(T_y < oo) > 0. $
-where $T_y$ is the time of first return to $y$.
+Def: We say that $y$ is *accessible* from $x$, and we write $x -> y$, if
+$rho_(x y) = P_x (T_y#footnote[Tiem of the fist return to $y$] < oo) > 0$.
 
 In other words,
-$ P_(x y)^m > 0 " for some " m > 0. $
+
+$
+  p_(x y)^m > 0 " for some " m > 0.
+$
 
 - Durrett instead say "x communicates with y" --- we won't do this, because the following definition is standard in probability:
 
 #pagebreak()
 
-Definition: Communicate
+Def: We say that $x$ and $y$ *communicate*, $x <-> y$, if $x -> y$ and $y -> x$.
+We trivially define all $x <-> x$.
 
-We say that $x$ and $y$ *communicate*, $x <-> y$, if $x -> y$ and $y -> x$. We trivially define all $x <-> x$.
-
-"`<->`" is an *equivalence relation* on S. This means:
-a. $x <-> x$ for all $x$ (Reflexive)
-b. $x <-> y => y <-> x$ for all $x, y$ (Symmetric)
-c. $x <-> y$ and $y <-> z => x <-> z$ for all $x, y, z$ (Transitive)
+"$<->$" is an *equivalence relation* on S. This means:
+- a. $x <-> x$ for all $x$ *(Reflexive)*
+- b. $x <-> y => y <-> x$ for all $x, y$ *(Symmetric)*
+- c. $x <-> y$ and $y <-> z => x <-> z$ for all $x, y, z$ *(Transitive)*
 
 #pagebreak()
 
 Consequently, the state space S of any MC $(X_n)$ is the disjoint union of "communication classes".
 
-$ C_x = "Communication class of " x = {y in S: x <-> y}. $
+$
+  C_x & = "Communication class of " x \
+      & = {y in S: x <-> y}.
+$
 
 Note: $x <-> x$ and $x <-> y => y <-> x$ are trivial.
 
@@ -34,46 +38,37 @@ Note: $x <-> x$ and $x <-> y => y <-> x$ are trivial.
 
 The following result is useful, especially when $|S| = oo$.
 
-*Theorem.* If $x -> y$ but $rho_(y x) < 1$ then $x$ is transient.
+Theorem. If $x -> y$ but $rho_(y x) < 1$, then $x$ is transient.
 
 Intuitively, there is a chance that the MC will visit $y$ before returning to $x$. And once at $y$, there is a chance it may never visit $x$ in the future.
 
-$ therefore rho_(x x) < 1 => x " is transient." $
+$
+  therefore rho_(x x) < 1 => x "is transient."
+$
 
 #pagebreak()
 
-From now on:
-Transient $==$ TRANS
-Recurrent $==$ REC.
+From now on: \
+Transient $equiv$ Trans \
+Recurrent $equiv$ Rec.
 
 This theorem immediately implies:
 
-*Corollary.* If $x$ is REC and $x -> y$, then $rho_(y x) = 1$.
+Corollary. If $x$ is Rec and $x -> y$, then $rho_(y x) = 1$.
 
-(By theorem $rho_(y x) = 1$, or else $x$ is TRANS.)
-
-#pagebreak()
-
-The following result is useful, especially when $|S| = oo$.
-
-*Theorem.* If $x -> y$ but $rho_(y x) < 1$ then $x$ is transient.
-
-Intuitively, there is a chance that the MC will visit $y$ before returning to $x$. And once at $y$, there is a chance it may never visit $x$ in the future.
-
-$ therefore rho_(x x) < 1 => x " is transient." $
+(By theorem $rho_(y x) = 1$, or else $x$ is Trans.)
 
 #pagebreak()
 
 As you might expect:
 
-*Theorem.* Trans/Rec is a class property i.e. all states in the same class are trans or rec.
+Theorem. Trans/Rec is a class property i.e. all states in the same class are trans or rec.
 
 We begin now working towards a proof of this.
 
 #pagebreak()
 
-Do example 1.14, p1f on your own.
-
+Do example 1.14, p14 on your own.
 - Draw tr. diagram.
 - Find comm. classes.
 - Determine rec/trans for each state (& notice that it is the same within classes).
@@ -82,7 +77,7 @@ Do example 1.14, p1f on your own.
 
 In order to prove the theorem, we show:
 
-*Lemma.* If $x$ is rec and $x <-> y$ then $y$ is rec.
+Lemma. If $x$ is rec and $x <-> y$ then $y$ is rec.
 
 Note: Lemma $=>$ Theorem.
 
@@ -93,123 +88,155 @@ Why?
 This lemma follows by a useful characterization of recurrence:
 
 A state $y$ is Rec $<=>$
-$ E_y N_y = sum_(n=1)^oo P_(y y)^n = oo $
-where $N_y = \#$ visits to $y$ after time 0.
-$ = \#{ n >= 1: X_n = y }. $
+
+$
+  E_y N_y & =^"(1)" sum_(n=1)^oo p_(y y)^n =^"(2)" oo \
+          & "where" N_y = "# visits to" y "after time" 0 \
+          & = \#{ n >= 1: X_n = y }.
+$
 
 #pagebreak()
 
-To see why:
-
-(1) $ N_y = sum_(n=1)^oo 1_(X_n = y), quad 1_(X_n = y) = cases(1 " if " X_n=y, 0 " if " X_n != y) $
-
-By LOE, $ E_x N_y = sum_(n=1)^oo P_x(X_n = y) $
-$ = sum_(n=1)^oo P_(x y)^n $.
+To see why: (1)
+$
+  N_y = sum_(n=1)^oo bold(1)_(X_n = y), quad bold(1)_(X_n = y) = cases(
+    1 " if " X_n=y,
+    0 " if " X_n != y
+  )
+$
+By LoE, $E_x N_y = sum_(n=1)^oo P_x (X_n = y) = sum_(n=1)^oo p_(x y)^n$
 
 In particular, if $x=y$,
-$ E_y N_y = sum_(n=1)^oo P_(y y)^n $.
+$
+  E_y N_y = sum_(n=1)^oo p_(y y)^n
+$
 
 #pagebreak()
 
 (2) For this, we use the SMP.
 $
-  E_x N_y = sum_(k=1)^oo k P_x(N_y=k)
-$ // Review: Tail formula for a RV with values in $0, 1, 2, ...$
+  E_x N_y &= sum_(k=1)^oo P_x (N_y>=k)#footnote[Review: Tail formula for a RV with values in $0, 1, 2, dots$] \
+  &= rho_(x y)#footnote[Visit 1st time] sum_(k=1)^oo rho_(y y)^(k-1)#footnote[Return k-1 more times (at least)] \
+  &= rho_(x y) / (1 - rho_(y y))#footnote[Geometric sum]
 $
-  = underbrace(rho_(x y))_("visit 1st time") sum_(k=1)^oo underbrace(rho_(y y)^(k-1))_("return k-1 more times (at least)")
-$
-$ = rho_(x y) / (1 - rho_(y y)) $ // Geometric sum
 
-If $x <-> y$: $ E_y N_y = rho_(y y) / (1 - rho_(y y)) $
+If $x <-> y$:
+
+$
+  E_y N_y = rho_(y y) / (1 - rho_(y y))
+$
 
 #pagebreak()
 
-Recall $rho_(y y) = 1 <=> "REC"$.
+Recall $rho_(y y) = 1 <=> "Rec"$.
 
 $
-  therefore E_y N_y = sum_(n=1)^oo P_(y y)^n = rho_(y y) / (1 - rho_(y y)) = oo
+  therefore E_y N_y = sum_(n=1)^oo p_(y y)^n = rho_(y y) / (1 - rho_(y y)) = oo \
+  <=> "Rec".
 $
-
-$ <=> "REC". $
 
 #pagebreak()
 
 With this, we can finally prove our lemma:
 
-*Lemma.* If $x$ is REC and $x <-> y$ then $y$ is REC.
+Lemma. If $x$ is Rec and $x <-> y$ then $y$ is Rec.
 
-If $x$ is REC and $x <-> y$, we already know from earlier that $rho_(y x) = 1$.
-
-$ therefore $ some $k, l$ such that
-$ P_(x y)^k > 0 $
-$ P_(y x)^l > 0 $
-
-#pagebreak()
-
-To show $y$ is REC, we show
-$ sum_(n=1)^oo P_(y y)^n = oo. $
+If $x$ is Rec and $x <-> y$, we already know from earlier that $rho_(y x) = 1$.
 
 $
-  sum_(n=1)^oo P_(y y)^n & >= sum_(n=1)^oo P_(y y)^(l+n+k) \
-  & "Why?" \
-  & >= sum_(n=1)^oo underbrace(P_(y x)^l)_(>0) P_(x x)^n underbrace(P_(x y)^k)_(>0) \
-  & = P_(y x)^l P_(x y)^k underbrace(sum_(n=1)^oo P_(x x)^n)_(=oo " since x is REC") \
-  & = oo
+  therefore "some" k, l "such that" \
+  p_(x y)^k > 0 \
+  p_(y x)^l > 0
 $
 
-$ therefore y " is REC." $
+#pagebreak()
+
+To show $y$ is Rec, we show $sum_(n=1)^oo p_(y y)^n = oo$.
+
+$
+  sum_(n=1)^oo p_(y y)^n & >= sum_(n=1)^oo p_(y y)^(l+n+k) \
+  & >= sum_(n=1)^oo underbrace(p_(y x)^l)_(>0) p_(x x)^n underbrace(p_(x y)^k)_(> 0) \
+  & = p_(y x)^l p_(x y)^k underbrace(sum_(n=1)^oo p_(x x)^n)_(=oo "since x is rec") \
+  & = oo \
+$
+
+$therefore y "is Rec." quad square$
+
 
 #pagebreak()
 
-*Durrett p15-17 prove these previous results + more:*
+[D]urrett p15-17 prove these previous results + more:
 
-Definition: Closed
+Def: A subset $C subset S$ of the state space is *closed* if you can't get out once in:
+$
+  i in C, j in.not C => p_(i j) = 0
+$
 
-A subset $C subset S$ of the state space is *closed* if you can't get out once in:
-$ i in C, j not in C => P_(i j) = 0 $
-
-Definition: Irreducible
-
-A set $A subset S$ is *irreducible* if for all $i,j in A => i <-> j$.
+Def: A set $A subset S$ is *irreducible* if for all $i,j in A => i <-> j$.
 
 #pagebreak()
 
-*Durrett (see Theorem 1.7) shows:*
+Durrett (see Theorem 1.7) shows:
 
-If $C$ is *finite*, *closed* and *irreducible*, then all states in $C$ are REC.
+If $C$ is *finite*, *closed* and *irreducible*, then all states in $C$ are Rec.
 
 To prove this now, using what we already know, we just need to make the following observation:
 
 #pagebreak()
 
-Observation
+Obs: Suppose $C subset S$ is *finite* and *closed*.
+Then at least one state is recurrent.
 
-Suppose $C subset S$ is *finite* and *closed*. Then at least one state is recurrent.
-
-This is sort of obvious. Once in $C$ you are stuck there forever. There are only $|C| < oo$ states. So if the MC runs forever ($oo$ many steps), at least one state must be visited $oo$ many times. (See p17 for formal proof.)
+This is sort of obvious.
+Once in $C$ you are stuck there forever.
+There are only $|C| < oo$ states.
+So if the MC runs forever ($oo$ many steps), at least one state must be visited $oo$ many times.
+(See p17 for formal proof.)
 
 #pagebreak()
 
 Another class property
 
-*Definition.* The *period* of a state $x$ is
-$ "g.c.d." { m >= 1 : P_(x x)^m > 0 }. $
-where "g.c.d." is the *greatest common divisor*.
+Def: The *period* of a state $x$ is
 
-- A state $x$ is *aperiodic* if its period is 1.
+$
+  "g.c.d."#footnote[greatest common divisor] { m >= 1 : p_(x x)^m > 0 }
+$
 
+- A state $x$ is *aperiodic* if its period is $1$.
 - An MC is *aperiodic* if all of its states are aperiodic.
 
 #pagebreak()
 
-// Diagram 1: States 1 and 2 with arrows pointing back and forth.
-1, 2 have period 2
 
-// Diagram 2: States 1 and 2 with arrows pointing back and forth, and a loop at state 1.
-1, 2 aperiodic
+- #diagram(edge-stroke: 1pt, node-stroke: 1pt, {
+  let (A, B) = ((0, 0), (1, 0))
 
-// Diagram 3: States 1 and 2 with arrows pointing back and forth. An arrow from 2 to 3, and an arrow from 3 back to 1.
-1, 2, 3 aperiodic
+  node(A, $1$)
+  node(B, $2$)
+  edge(A, B, "->", bend: 20deg)
+  edge(B, A, "->", bend: 20deg)
+}) $1$, $2$ have period 2
+- #diagram(edge-stroke: 1pt, node-stroke: 1pt, {
+  let (A, B) = ((0, 0), (1, 0))
+
+  node(A, $1$)
+  node(B, $2$)
+  edge(A, A, "->", bend: -135deg, loop-angle: -90deg)
+  edge(A, B, "->", bend: 20deg)
+  edge(B, A, "->", bend: 20deg)
+}) $1$, $2$ aperiodic
+- #diagram(edge-stroke: 1pt, node-stroke: 1pt, {
+  let (A, B, C) = ((0, 1), (0.8, 0), (1.6, 1))
+
+  node(A, $1$)
+  node(B, $2$)
+  node(C, $3$)
+  edge(A, B, "->", bend: 45deg)
+  edge(B, A, "->")
+  edge(B, C, "->")
+  edge(C, A, "->")
+}) $1$, $2$, $3$ aperiodic
 
 #pagebreak()
 
