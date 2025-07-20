@@ -223,7 +223,7 @@ $therefore$ $pi$ would have to be $pi=0$ which is *not* a prob. dist. (does not 
 To prove theorem 1.19, we need:
 
 *Lemma*
-If $(X_n)$ has a SD $pi$ (i.e. $pi=pi P$ & $sum_i pi_i = 1$) then all states with $pi_j > 0$ are Rec.
+If $(X_n)$ has a SD $pi$ (i.e. $pi=pi underline(P)$ & $sum_i pi_i = 1$) then all states with $pi_j > 0$ are Rec.
 
 *Proof.* From previous lectures,
 

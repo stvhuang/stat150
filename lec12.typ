@@ -1,33 +1,82 @@
 == Lecture 12
 
-$
-  sum_i pi_i bb(E)_i N_j = sum_i pi_i sum_(n=1)^infinity P_(i j)^n \
-  = sum_(n=1)^infinity sum_i pi_i P_(i j)^n \
-  = sum_(n=1)^infinity (pi P^n)_j \
-  = sum_(n=1)^infinity pi_j \
-  = infinity
-$
-(since $pi = pi P => pi = pi P^n$ and $pi_j > 0$)
+[D] §1.7 --- Proof of main theorems
 
-Recall: $bb(E)_i N_j = rho_(i j) / (1 - rho_(j j))$ where $rho_(i j) = P_i(T_j < infinity)$
+Recall from last week:
+
+*Main MC Theorem*
+If $(X_n)$ is aperiodic, irreducible and $|S| < oo$, then there is a s.d. $pi$ ( i.e. $pi = pi underline(P)$ & $sum pi_i = 1$) and
+
+$
+  & 1. lim_(n->oo) p_(i j)^n = pi_j quad "for any" i \
+  & 2. lim_(n->oo) (N_n (j)) / n#footnote[LR prop. of time in $j$.] = 1 / (E_j [T_j])#footnote[Inverse mean return time to $j$.] = pi_j
+$
+
+#pagebreak()
+
+We'll prove this theorem this week. Along the way we'll prove some more general results:#footnote[Holds for $|S| = oo$.]
+
+*Theorem 1.19*
+Suppose $(X_n)$ is irreducible, aperiodic and has a SD $pi = pi underline(P)$.
+Then
+$lim_(n->oo) p_(i j)^n = pi_j quad "for all" i,j$
+
+*Theorem 1.20*
+Suppose $(X_n)$ is irreducible and  Rec. Then it has a stationary measure $mu >= 0: sum_i mu_i p_(j i) = mu_j$ for all $i$.
+
+#pagebreak()
+
+To prove theorem 1.19, we need:
+
+*Lemma*
+If $(X_n)$ has a SD $pi$ (i.e. $pi=pi underline(P)$ & $sum_i pi_i = 1$) then all states with $pi_j > 0$ are Rec.
+
+*Proof.* From previous lectures,
+
+$
+  E_i N_j = sum_(n=1)^oo p_(i j)^n
+$
+
+$
+  therefore sum_i pi_i E_i N_j = sum_(i=1)^oo pi_i sum_(n=1)^oo p_(i j)^n
+$
 
 #pagebreak()
 
 $
-  therefore sum_i pi_i rho_(i j) / (1 - rho_(j j)) = 1 / (1 - rho_(j j)) sum_i pi_i rho_(i j)
+  sum_i pi_i E_i N_j & = sum_i pi_i sum_(n=1)^oo p_(i j)^n
+                       = sum_(n=1)^oo sum_i pi_i p_(i j)^n \
+                     & = sum_(n=1)^oo (pi underline(P)^n)_j
+                       = sum_(n=1)^oo pi_j
+                       = oo
+$
+
+(since $pi = pi P => pi = pi P^n$ and $pi_j > 0$)
+
+Recall: $E_i N_j = rho_(i j) / (1 - rho_(j j))$ where $rho_(i j) = P_i (T_j < oo)$
+
+#pagebreak()
+
+$
+  therefore sum_i pi_i rho_(i j) / (1 - rho_(j j)) = 1 / (1 - rho_(j j)) sum_i pi_i rho_(i j) = oo
 $
 
 However,
-$ sum_i pi_i rho_(i j) <= sum_i pi_i = 1 $
 
-$ therefore 1 / (1 - rho_(j j)) = infinity => rho_(j j) = 1 $
-$ => j " is recurrent." $ $square$
+$
+  sum_i pi_i rho_(i j) <= sum_i pi_i = 1
+$
+
+$
+  therefore 1 / (1 - rho_(j j)) = oo & => rho_(j j) = 1 \
+                                     & => j "is Rec." quad square
+$
 
 #pagebreak()
 
-== We are ready to prove:
+We are ready to prove:
 
-*Theorem 1.19* Suppose $(X_n)$ is irreducible, aperiodic and has a stationary distribution $pi = pi P$. Then $lim_(n -> infinity) p_(i j)^n = pi_j$ for all $i, j$.
+*Theorem 1.19* Suppose $(X_n)$ is irreducible, aperiodic and has a stationary distribution $pi = pi P$. Then $lim_(n -> oo) p_(i j)^n = pi_j$ for all $i, j$.
 
 [Proof is long but beautiful. We'll split it into several parts]
 
@@ -69,7 +118,7 @@ So by lemma, all states $(i, j) in S^2$ are recurrent for $(Y_n) = (X_n, X'_n)$.
 
 Let $T = "min"{ n >= 0: X_n = X'_n } = 1^"st"$ time co-ordinates equal.
 
-Note: $P(T < infinity) = 1$. (All states $(x,x)$ is recurrent.)
+Note: $P(T < oo) = 1$. (All states $(x,x)$ is recurrent.)
 
 #pagebreak()
 
@@ -101,13 +150,13 @@ $
 #pagebreak()
 
 $ therefore sum_x | P(X_n=x) - P(X'_n=x) | <= 2 P(T > n) $
-$ -> 0 " as " n -> infinity $
+$ -> 0 " as " n -> oo $
 
 Now, let $X_0 = i$ & $X'_0 ~ pi$. Then,
-$ sum_j | p_(i j)^n - pi_j | -> 0 " as " n -> infinity $
+$ sum_j | p_(i j)^n - pi_j | -> 0 " as " n -> oo $
 // Arrow points to X'_0 ~ pi, indicating X'_n ~ pi
 
-$ => lim_(n->infinity) p_(i j)^n = pi_j quad forall i, j. $ $square$
+$ => lim_(n->oo) p_(i j)^n = pi_j quad forall i, j. $ $square$
 
 #pagebreak()
 
@@ -115,7 +164,7 @@ Next, we prove:
 
 *Theorem 1.20* Suppose $(X_n)$ is irreducible and recurrent. Then it has a *stationary measure* $mu >= 0$ : $sum_i mu_i P_(i j) = mu_j$ for all $j$.
 
-Recall: if $abs(S) < infinity$ we can use $mu$ to find SD: $pi_i = mu_i / (sum_j mu_j)$.
+Recall: if $abs(S) < oo$ we can use $mu$ to find SD: $pi_i = mu_i / (sum_j mu_j)$.
 
 #pagebreak()
 
@@ -123,7 +172,7 @@ Recall: if $abs(S) < infinity$ we can use $mu$ to find SD: $pi_i = mu_i / (sum_j
 $ T_i = "min"{ n >= 1 : X_n = i } $
 
 We show
-$ mu_i(j) = sum_(n=0)^infinity P_i(X_n = j, T_i > n) $
+$ mu_i(j) = sum_(n=0)^oo P_i(X_n = j, T_i > n) $
 $ = "expected # visits to j before time " T_i ", starting from i" $
 is a stationary measure.
 
