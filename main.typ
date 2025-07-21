@@ -31,3 +31,5 @@
 #include "./lec14.typ"
 #include "./lec15.typ"
 #include "./lec16.typ"
+#include "./lec17.typ"
+#include "./lec18.typ"
