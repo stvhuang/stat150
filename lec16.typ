@@ -1,6 +1,6 @@
 == Lecture 16
 
-== Branching Processes (BP)
+Branching Processes (BP)
 
 Start with 1 particle $X_0=1$.
 
@@ -196,7 +196,7 @@ Using lemma, we can now study cases $mu>1$ and $mu=1$:
 
 #pagebreak()
 
-== mu > 1
+mu > 1
 If $P(xi=0) = 0$, then clearly $p=0$. Also, $phi(theta) = sum_(k=1)^oo P(xi=k)theta^k$ (sum starts at $k=1$), so $phi(0) = 0$. $checkmark$
 
 If $P(xi=0) > 0$, then
@@ -214,7 +214,7 @@ If $mu>1$, slope of $phi$ at $theta=1$ is larger than 1 = slope of diagonal
 
 #pagebreak()
 
-== mu = 1
+mu = 1
 Recall, we exclude trivial case where $P(xi=1)=1$. Then $mu=1$ and $p=0$.
 
 Suppose $mu=1$ & $P(xi=1)<1$. We show $phi$ has no root $theta < 1$.
@@ -243,7 +243,7 @@ $therefore theta=1$ only root in $[0,1]$. $square$
 
 #pagebreak()
 
-== Eg Binary Branching:
+Eg Binary Branching:
 
 TODO
 // $

@@ -240,7 +240,7 @@ $ // by (ii)
 
 #pagebreak()
 
-== §2.2 — Defining the Poisson Process
+§2.2 — Defining the Poisson Process
 
 Recall: $X tilde "Poisson"(lambda)$ if
 $

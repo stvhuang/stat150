@@ -1,6 +1,6 @@
 == Lecture 15
 
-== Generalized Main MC Theorem
+Generalized Main MC Theorem
 $(X_n)$ an *irreducible, ergodic* MC. Then
 
 1. There is a SD $pi: pi = pi P$ & $sum pi_i = 1$
@@ -10,7 +10,7 @@ $(X_n)$ an *irreducible, ergodic* MC. Then
 
 #pagebreak()
 
-== Eg: SRW Reflected at 0
+Eg: SRW Reflected at 0
 
 TODO
 // $ q circlearrowright 0 <->_(q)^(p) 1 <->_(q)^(p) 2 <-> ... $
@@ -48,7 +48,7 @@ What happens for $p >= 1/2$?
 
 #pagebreak()
 
-== Recall From HW #1
+Recall From HW #1
 
 TODO
 // $ 0 under(q <- i -> p) N $
@@ -109,7 +109,7 @@ $therefore$ All states are null rec ($(X_n)$ IRR.)
 
 #pagebreak()
 
-== Branching Processes (BP)
+Branching Processes (BP)
 
 Start with 1 particle $X_0 = 1$.
 
@@ -146,7 +146,7 @@ $arrow.t$
 
 In all other cases, survival only depends on whether $mu > 1$ or $mu <= 1$.
 
-== Theorem
+Theorem
 $(X_n)$ a BP with offspring distribution $xi$, $mu = E xi$. Suppose $P(xi=1) != 1$. Then
 $
   rho = P("extinct") = P(X_n=0 " eventually") = cases(
@@ -165,7 +165,7 @@ The borderline case $mu=1$ is the most surprising.
 
 #pagebreak()
 
-== Recall
+Recall
 
 $
   X_n | X_(n-1)=m = sum_(i=1)^m xi_i
@@ -185,7 +185,7 @@ $ E(X_n) = mu^n " for all " n >= 0 $.
 
 #pagebreak()
 
-== Hence
+Hence
 
 $
   E(X_n) ->_(n->oo) cases(
