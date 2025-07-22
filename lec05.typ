@@ -4,8 +4,8 @@ From last class:
 
 Theorem. Let $(X_n)$ be a (time-hom.) MC on state space $S$. Then, for any $m$ and $i,j in S$,
 $
-  p_(i j)^m = P(X_(n+m) & = j | X_n = i) \
-                        & = (underline(P)^m)_(i j)
+  p_(i j)^m & = P(X_(n+m) = j | X_n = i) \
+            & = (underline(P)^m)_(i j)
 $
 
 Proof:
@@ -62,7 +62,7 @@ $
 $
 
 $
-  therefore (P^m)_(i j) & = sum_k p_(i k)^(m-1) p_(k j) \
+  therefore (underline(P)^m)_(i j) & = sum_k p_(i k)^(m-1) p_(k j) \
                         & = p_(i j)^m quad "by CK-Eqn."
 $
 
