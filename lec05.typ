@@ -163,7 +163,7 @@ $
                    & = rho_(y y)^k
 $
 
-If $rho_(y y) < 1$, $P_y(T_y^k < oo) -> 0$ as $k -> oo$. \
+If $rho_(y y) < 1$, $P_y (T_y^k < oo) -> 0$ as $k -> oo$. \
 So total \# visits to $y$ is $< oo$ (w.p. 1).
 
 #pagebreak()
