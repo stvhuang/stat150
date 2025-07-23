@@ -278,7 +278,7 @@ The main result here is that if $(X_n)$ on $|S| < oo$:
 Then $(X_n)$ has a SD $pi$:
 
 $
-  lim_(n->oo) p_(i j)^n = pi_j#footnote[$pi = (pi_1, pi_2, dots, pi_m), |S|=m$]#footnote[= LR prop. of time spent in state $j$, does not depend on $X_0$.]
+  lim_(n->oo) p_(i j)^n = pi_j#footnote[$pi = (pi_1, pi_2, dots, pi_m), |S|=m$]#footnote[\= LR prop. of time spent in state $j$, does not depend on $X_0$.]
 $
 
 We'll prove this later. For now we just assume it.
