@@ -9,7 +9,7 @@ Main result here is that if
 2. Aperiodic (all states period 1)
 3. Irreducible ($i <-> j$ for all $i, j in S$)
 
-Then $(X_n)$ has a stationary distribution $pi = pi P$ and
+Then $(X_n)$ has a stationary distribution $pi = pi underline(P)$ and
 
 $
   lim_(n -> oo) p_(i j)^n = pi_j
