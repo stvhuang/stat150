@@ -60,11 +60,11 @@ May *not* be true if $(X_n)$ is periodic or reducible:
 }) (periodic)
 
 $
-  P_(11)^n = cases(
+  p_(11)^n = cases(
     1 " if " n " is even",
     0 " if " n " is odd"
   ) \
-  therefore lim_(n->infinity) P_(11)^n "does not exist!"
+  therefore lim_(n->oo) p_(11)^n "does not exist!"
 $
 
 #pagebreak()
@@ -94,7 +94,7 @@ $therefore lim_(n -> oo) p_(i j)^n$ depends on which class $i$ is from.
 
 #pagebreak()
 
-#footnote[Why $pi = pi P$?]Suppose we start $(X_n)$ randomly, \
+#footnote[Why $pi = pi underline(P)$?]Suppose we start $(X_n)$ randomly, \
 i.e. $X_0$ is a RV on $S = {1, 2, dots, m}$ \
 some distribution:
 
@@ -102,7 +102,7 @@ $
   q_i = P(X_0 = i), quad 1 <= i <= m
 $
 
-Then what is $P(X_n = j)$? $1 <= j <= m$
+Then what is $P(X_n = j)"?" quad 1 <= j <= m$
 
 #pagebreak()
 

@@ -71,7 +71,7 @@ $
 
 #pagebreak()
 
-Next we use the DBE to verify that $pi = (pi_1, dots, pi_N)$ is the SD ($pi = pi P$) where#footnote[Last class: DB $=>$ SD]
+Next we use the DBE to verify that $pi = (pi_1, dots, pi_N)$ is the SD ($pi = pi underline(P)$) where#footnote[Last class: DB $=>$ SD]
 
 $
   pi_i = binom(N, i) / 2^N
