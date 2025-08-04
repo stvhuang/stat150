@@ -39,7 +39,7 @@ What is SD $pi$? Does it exist?
 
 #pagebreak()
 
-This is a *B&D* MC (recall this means $p_(i j) = 0$ unless $j in {i, plus.minus 1}$).
+This is a B&D MC (recall this means $p_(i j) = 0$ unless $j in {i, plus.minus 1}$).
 So to find SD, we try to solve DB equations.
 
 Recall normalizing method:
@@ -79,7 +79,7 @@ $
   E_j T_j = 1 / pi_j = (q/p)^j (1-p)/(1-2p) < oo
 $
 
-$therefore$ For $p < 1/2$ all states are pos rec.
+$therefore$ For $p < 1/2$ all states are Pos Rec.
 
 #pagebreak()
 
@@ -89,7 +89,7 @@ What happens for $p >= 1/2$?
 
 #pagebreak()
 
-Recall From HW #1
+Recall from HW #1
 
 #figure[
   #image(
@@ -110,20 +110,20 @@ As $N -> oo$, provided $q/p < 1$ ($p > 1/2$)
 $therefore$ For SRW reflected at 0:
 
 $
-  P_x (T_0 < oo) = (q/p)^x < 1
+  P_x#footnote[$x >= 1$] (T_0 < oo) = (q/p)^x < 1
 $
 
-$therefore$ For $p > 1/2$, all states are trans.
+$therefore$ For $p > 1/2$, all states are Trans.
 
 What about the borderline case $p=1/2$?
 
 #pagebreak()
 
-Symmetric ($p=1/2$) SRW on $ZZ$ is rec.
+Symmetric ($p=1/2$) SRW on $ZZ$ is Rec.
 Therefore so is symmetric SRW reflected at 0.
-(Why? Start at 0. Either $X_1=0$, or $X_1=1$. If $X_1=1$, since SRW on $ZZ$ is rec., we will visit 0 again w.p. $1$.)
+(Why? Start at 0. Either $X_1=0$, or $X_1=1$. If $X_1=1$, since SRW on $ZZ$ is Rec., we will visit 0 again w.p. $1$.)
 
-However, it is null rec, and so doesn't have a SD.
+However, it is null Rec, and so doesn't have a SD.
 
 #pagebreak()
 
@@ -219,7 +219,7 @@ Moreover, $rho = P("extinct")$ is smallest positive solution to $x = sum_k P(xi=
 Recall
 
 $
-  & X_n | X_(n-1)=m = sum_(i=1)^m xi_i \
+  & X_n | (X_(n-1) = m) = sum_(i=1)^m xi_i \
   & => E(X_n | X_(n-1)=m) = m mu \
   & => E(X_n | X_(n-1)) = mu X_(n-1) \
   & => E(X_n) = mu E(X_(n-1))
