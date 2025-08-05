@@ -13,7 +13,7 @@ $
   X_0 = 1
 $
 $
-  & X_n | X_(n-1) = m = sum_(i=1)^m xi_i^(n)
+  & X_n | (X_(n-1) = m) = sum_(i=1)^m xi_i^(n)
 $
 
 where $xi_i^(n)$ iid, $E xi = mu$.
@@ -59,7 +59,7 @@ Moreover, $rho = P("extinct")$ is smallest positive solution to $x = sum_k P(xi=
 Recall
 
 $
-  & X_n | X_(n-1)=m = sum_(i=1)^m xi_i \
+  & X_n | (X_(n-1)=m) = sum_(i=1)^m xi_i \
   & => E(X_n | X_(n-1)=m) = m mu \
   & => E(X_n | X_(n-1)) = mu X_(n-1) \
   & => E(X_n) = mu E(X_(n-1))
@@ -145,7 +145,7 @@ $
 *Proof*.
 
 $
-  underbrace(P(X_n=0), "Die out by time n.") = sum_(k=0)^oo P(xi=k) underbrace(P(X_(n-1)=0)^k, #footnote["All family trees of all k children of 1st particle must die out (independently) by time n-1."])
+  underbrace(P(X_n=0), "Die out by time n.") = sum_(k=0)^oo P(xi=k) underbrace(P(X_(n-1)=0)^k, #footnote[All family trees of all k children of 1st particle must die out (independently) by time n-1.])
 $
 
 #pagebreak()
@@ -166,7 +166,7 @@ $
 #pagebreak()
 
 $
-  rho_n = phi_rho_(n-1) => rho_oo = phi(rho_oo)
+  rho_n#footnote[$-> rho_oo$] = phi(rho_(n-1)#footnote[$-> rho_oo$]) => rho_oo = phi(rho_oo)
 $
 
 So $rho_oo$ is a solution to $theta = phi(theta)$.
@@ -175,30 +175,31 @@ To finish proof of lemma, we show $rho_oo$ = smallest sol. in $[0,1]$.
 
 #pagebreak()
 
-Let $p$ = smallest pos. sol.
+Let $p$ = smallest pos. sol. to $phi(theta) = theta$ in $[0,1]$.
+
 We show $p = rho_oo$.
 
 Note: $phi(theta) = sum_(k=0)^oo P(xi=k) theta^k$ is increasing in $theta$, since all $P(xi=k) >= 0$.
 
 $rho_0 = P(X_0=0) = 0 <= p$, since $X_0=1$.
 
-Since $phi$ increasing, $phi(rho_0) <= phi(p)$ \
-$=> rho_1 <= p$ since $phi(rho_0) = rho_1$, and $phi(p)=p$.
+Since $phi$ increasing, $phi(rho_0) <= phi(rho)$ \
+$=> rho_1 <= rho$ since $phi(rho_0) = rho_1$, and $phi(rho)=rho$.
 
 #pagebreak()
 
 Repeating argument,
-all $rho_n <= p$.
+all $rho_n <= rho$.
 
-Take $n->oo$, $rho_oo <= p quad square$
+Take $n->oo$, $rho_oo <= rho quad square$
 
 Using lemma, we can now study cases $mu>1$ and $mu=1$:
 
 #pagebreak()
 
 #text(size: 11pt)[
-  $mu$ > 1
-  If $P(xi=0) = 0$, then clearly $p=0$. Also, $phi(theta) = sum_(k=1)^oo P(xi=k)theta^k$ (sum starts at $k=1$), so $phi(0) = 0$.
+  $mu > 1$
+  If $P(xi = 0) = 0$, then clearly $rho = 0$. Also, $phi(theta) = sum_(k=1)^oo P(xi=k) theta^k$ (sum starts at $k=1$), so $phi(0) = 0$.
 
   If $P(xi=0) > 0$, then
 
@@ -216,15 +217,19 @@ Using lemma, we can now study cases $mu>1$ and $mu=1$:
 #figure[
   #image(
     "./figs/p16_32m.png",
-    width: 100%,
+    width: 80%,
   )
 ]
+
+Blue: generating function $phi$ \
+Black: diagonal $y = theta$ \
+$phi(0) = P(xi = 0)$
 
 #pagebreak()
 
 #text(size: 11pt)[
-  $mu$ = 1
-  Recall, we exclude trivial case where $P(xi=1)=1$. Then $mu=1$ and $p=0$.
+  $mu = 1$
+  Recall, we exclude trivial case where $P(xi = 1) = 1$. Then $mu = 1$ and $rho = 0$.
 
   Suppose $mu=1$ & $P(xi=1)<1$. We show $phi$ has no root $theta < 1$.
 
