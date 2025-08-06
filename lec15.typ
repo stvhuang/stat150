@@ -120,7 +120,7 @@ What about the borderline case $p=1/2$?
 #pagebreak()
 
 Symmetric ($p=1/2$) SRW on $ZZ$ is Rec.
-Therefore so is symmetric SRW reflected at 0.
+Therefore SD is symmetric SRW reflected at 0.
 (Why? Start at 0. Either $X_1=0$, or $X_1=1$. If $X_1=1$, since SRW on $ZZ$ is Rec., we will visit 0 again w.p. $1$.)
 
 However, it is null Rec, and so doesn't have a SD.
