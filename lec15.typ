@@ -71,7 +71,7 @@ $
 
 $(X_n)$ is clearly irreducible.
 
-$therefore$ For $p < 1/2$, $(X_n)$ is IRR & has SD.
+$therefore$ For $p < 1/2$, $(X_n)$ is Irr & has SD.
 
 By theorem 1.22 above,
 
@@ -123,7 +123,7 @@ Symmetric ($p=1/2$) SRW on $ZZ$ is Rec.
 Therefore SD is symmetric SRW reflected at 0.
 (Why? Start at 0. Either $X_1=0$, or $X_1=1$. If $X_1=1$, since SRW on $ZZ$ is Rec., we will visit 0 again w.p. $1$.)
 
-However, it is null Rec, and so doesn't have a SD.
+However, it is Null Rec, and so doesn't have a SD.
 
 #pagebreak()
 
@@ -153,9 +153,9 @@ $therefore E_0 T_0 = 1/2 + 1/2 (1 + E_1 T_0)$
 
 $=> E_0 T_0 = oo$
 
-$therefore$ 0 is null rec
+$therefore$ 0 is Null Rec
 
-$therefore$ All states are null rec ($(X_n)$ IRR.)
+$therefore$ All states are Null Rec ($(X_n)$ Irr.)
 
 #pagebreak()
 
