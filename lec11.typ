@@ -175,7 +175,7 @@ Running $(Y_n)$ for a long time gives an approx sample from $"Geometric"(lambda)
 Recall from last week:
 
 *Main MC Theorem*
-If $(X_n)$ is aperiodic, irreducible and $|S| < oo$, then there is a s.d. $pi$ ( i.e. $pi = pi underline(P)$ & $sum pi_i = 1$) and
+If $(X_n)$ is aperiodic, irreducible and $|S| < oo$, then there is a SD $pi$ ( i.e. $pi = pi underline(P)$ & $sum pi_i = 1$) and
 
 $
   & 1. lim_(n->oo) p_(i j)^n = pi_j quad "for any" i \
