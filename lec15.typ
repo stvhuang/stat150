@@ -173,7 +173,7 @@ $(X_n)$ is a MC.
 
 $
           & X_0 = 1 \
-  \& quad & X_n | X_(n-1) = m = sum_(i=1)^m xi_i^(n)
+  \& quad & X_n | (X_(n-1) = m) = sum_(i=1)^m xi_i^(n)
 $
 
 where $xi_i^(n)$ IID, $E xi = mu$.
