@@ -14,14 +14,14 @@ Last week we proved the main MC theorem for finite state space MC's:
 
 To prove this, we proved several general results:
 
-*Theorem 1.19* Suppose $(X_n)$ is IRR, aperiodic and has a SD $pi=pi underline(P)$. Then $lim_(n->oo) p_(i j)^n = pi_j$ for all $i,j$
+*Theorem 1.19* Suppose $(X_n)$ is Irr, aperiodic and has a SD $pi=pi underline(P)$. Then $lim_(n->oo) p_(i j)^n = pi_j$ for all $i,j$
 
-*Theorem 1.20* Suppose $(X_n)$ is IRR and REC. Then it has a stationary measure $mu >= 0$: $sum_i mu_i p_(i j) = mu_j$ for all $i$.
+*Theorem 1.20* Suppose $(X_n)$ is Irr and Rec. Then it has a stationary measure $mu >= 0$: $sum_i mu_i p_(i j) = mu_j$ for all $i$.
 
 #pagebreak()
 
 #text(size: 10pt)[
-  *Theorem 1.21* $(X_n)$ IRR & REC. Then
+  *Theorem 1.21* $(X_n)$ Irr & Rec. Then
   $
     lim_(n->oo) (N_n (j)) / n = 1 / (E_j T_j)
   $
@@ -45,11 +45,11 @@ Notice that some of the previous results can hold even when $|S| = oo$.
 
 In this lecture we'll discuss the a generalized main MC theorem that can hold even when $|S|=oo$.
 
-- The main issue is recurrence when $|S|=oo$. It is not enough *just* to be REC:
+- The main issue is recurrence when $|S|=oo$. It is not enough *just* to be Rec:
 
 #pagebreak()
 
-*Def* Suppose $j$ is REC: $P_j (T_j < oo) = 1$. Then we call $j$
+*Def* Suppose $j$ is Rec: $P_j (T_j < oo) = 1$. Then we call $j$
 - Positive Recurrent (Pos Rec) if $E_j T_j < oo$
 - Null Recurrent (Null Rec) if $E_j T_j = oo$.
 
@@ -58,7 +58,7 @@ In this lecture we'll discuss the a generalized main MC theorem that can hold ev
 
 #pagebreak()
 
-- Boltzmann (1887) defined a state that is aperiodic & pos rec to be *ergodic*.
+- Boltzmann (1887) defined a state that is aperiodic & Pos Rec to be *ergodic*.
 
 *Def* We call a MC ergodic if all states are ergodic.
 
@@ -66,8 +66,8 @@ In this lecture we'll discuss the a generalized main MC theorem that can hold ev
 
 Facts:
 
-1. Pos/null rec is a class property. Therefore, so is ergodicity.
-2. If a communication class is finite & rec, then it is pos rec. Therefore for finite state space MC's Rec $equiv$ Pos Rec.
+1. Pos/Null Rec is a class property. Therefore, so is ergodicity.
+2. If a communication class is finite & Rec, then it is Pos Rec. Therefore for finite state space MC's Rec $equiv$ Pos Rec.
 
 #pagebreak()
 
@@ -81,7 +81,7 @@ $(X_n)$ an irreducible, ergodic MC. Then
 
 #pagebreak()
 
-- We need pos rec so that we can normalize the stationary measure in theorem 1.20 above to get a stationary distribution: $pi = pi underline(P)$ and $sum pi_i = 1$.
+- We need Pos Rec so that we can normalize the stationary measure in theorem 1.20 above to get a stationary distribution: $pi = pi underline(P)$ and $sum pi_i = 1$.
 
 #pagebreak()
 
@@ -163,7 +163,7 @@ $
   E_j T_j = 1/pi_j = (q/p)^j (1-p)/(1-2p) < oo
 $
 
-$therefore$ For $p < 1/2$ all states are pos rec.
+$therefore$ For $p < 1/2$ all states are Pos Rec.
 
 #pagebreak()
 
