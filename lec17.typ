@@ -43,22 +43,24 @@ $
   & h(0) = P_0 ("Jackpot") = 0
 $
 
-For $i in {1, 2, dots, N-1}$, $h(i) = sum_j p_(i j) h(j) = q h(i-1) + p h(i+1)$ is what we got by FSA on HW #1.
+For $i in {1, 2, dots, N-1}$, \
+$h(i) = sum_j p_(i j) h(j) = q h(i-1) + p h(i+1)$ is what we got by FSA on HW\#1.
 
 #pagebreak()
 
-#text(size: 10pt)[
-  Theorem Let $(X_n)$ be a MC on $S$. Suppose $A, B subset S$ such that $C = S backslash (A union B)$ is finite.
+#text(size: 9pt)[
+  Theorem Let $(X_n)$ be a MC on $S$. Suppose $A, B subset S$ \
+  such that $C = S backslash (A union B)$ is finite.
 
   Suppose
 
   $
-    h(a) & = 1                  & quad a in A \
-    h(b) & = 0                  & quad b in B \
-    h(i) & = sum_j p_(i j) h(j) & quad i in C
+    h(a) & = 1                                & quad a in A \
+    h(b) & = 0                                & quad b in B \
+    h(i) & = sum_j#footnote[FSA] p_(i j) h(j) & quad i in C
   $
 
-  Then, $h(i) = P_i (V_A < V_B)#footnote[Exit distribution]$ if $P_i (min{V_A, V_B} < oo) > 0$ for all $i in C$.
+  Then, $h(i) = P_i (V_A < V_B)#footnote[Exit distribution]$ if $P_i (min{V_A, V_B} < oo#footnote[Exit in finite time from $C$]) > 0$ for all $i in C$.
 
   *Proof:* Essentially FSA, but more technical, see [D].
 ]
@@ -89,19 +91,16 @@ Wikipedia: "Genetic Drift"
 Ex 1.43 "Wright-Fisher model with no mutation"
 
 $
-  S = {0, 1, dots, N}
-$
-
-$
+        S & = {0, 1, dots, N} \
   p_(i j) & = binom(N, j) (i/N)^j ((N-i)/N)^(N-j) \
           & = P("Binomial"(N, i/N) = j)
 $
 
-$X_n$ = \# of "type A" genes. (Haploid model: A or a)
+$X_n$ = \# of "type A" genes. (Haploid model: A or B)
 
 #pagebreak()
 
-#text(size: 10pt)[
+#text(size: 9pt)[
   $0$ and $N$ are absorbing states.
 
   $
@@ -118,7 +117,7 @@ $X_n$ = \# of "type A" genes. (Haploid model: A or a)
   Indeed,
 
   $
-    & sum_j binom(N, j) (i/N)^j ((N-i)/N)^(N-j) j/N \
+    & sum_j underbrace(binom(N, j) (i/N)^j ((N-i)/N)^(N-j), p_(i j)) underbrace(j/N, h_j) \
     & = 1/N E("Bin"(N, i/N)) = i/N
   $
 ]
@@ -131,7 +130,7 @@ $
   & P_i (V_A < V_B) \
   & = P_i ("Fixation to 'type A' genes") \
   & = i/N \
-  & = "initial prop. of type A genes."
+  & = "initial prop. of type A genes."#footnote[This is where our guess initially came from.]
 $
 
 #pagebreak()
@@ -173,32 +172,36 @@ $
 
 #pagebreak()
 
-To find $P_i(V_A < V_B)$, it is easier to study:
+To find $P_i (V_A < V_B)$, it is easier to study:
 
 #figure[
   #image(
     "./figs/p17_40m.png",
-    width: 50%,
+    width: 40%,
   )
 ]
 
 $
-  h(A) & = 1, quad h(B) = 0 \
-  h(2) & = 0.1 + 0.2 h(2) + 0.3 h(3) \
-  h(3) & = 0.2 + 0.5 h(3)
+  & h(A) = 1, quad h(B) = 0 \
+  & h(2) = 0.1 + 0.2 h(2) + 0.3 h(3) \
+  & h(3) = 0.2 + 0.5 h(3) \
+  & "By theorem, solution to this is exit distribution."
 $
+
 
 #pagebreak()
 
-$
-  => & h(2) = 11/40 \
-     & h(3) = 2/5
-$
+#text(size: 10pt)[
+  $
+    => & h(2) = 11/40 \
+       & h(3) = 2/5
+  $
 
-Therefore, for example,
+  Therefore, for example,
 
-$
-  lim_(n->oo) p_(2 1)^n & = P_2(V_A < V_B) (pi_A)_1 = 11/40 dot 2/3 \
-  lim_(n->oo) p_(3 7)^n & = (1 - P_3(V_A < V_B)) (pi_B)_7 \
-                        & = (1 - 2/5) dot 4/17
-$
+  $
+    lim_(n->oo) p_(2 1)^n & = underbrace(P_2(V_A < V_B), h(2)) (pi_A#footnote[Equil. dist. for class $A$])_1 = 11/40 dot 2/3 \
+    lim_(n->oo) p_(3 7)^n & = (1 - P_3(V_A < V_B)) (pi_B)_7 \
+    & = (1 - 2/5) dot 4/17
+  $
+]
