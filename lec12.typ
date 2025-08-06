@@ -188,7 +188,7 @@ $
 We show
 
 $
-  mu_i(j) & = sum_(n=0)^oo P_i (X_n = j, T_i > n) \
+  mu_i (j) & = sum_(n=0)^oo P_i (X_n = j, T_i > n) \
           & = "expected # visits to j before time " T_i ", starting from i"
 $
 is a stationary measure.
