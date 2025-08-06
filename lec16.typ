@@ -10,9 +10,7 @@ Let $X_n$ = \# particles in $n$th generation.
 ($X_n$) is a MC.
 
 $
-  X_0 = 1
-$
-$
+  & X_0 = 1 \
   & X_n | (X_(n-1) = m) = sum_(i=1)^m xi_i^(n)
 $
 
