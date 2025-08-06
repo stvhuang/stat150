@@ -243,7 +243,7 @@ $
   )
 $
 
-By Markov's Inequality,
+By Markov's Inequality,#footnote[$P(X >= a) <= E(X) / a$ for $a > 0$.]
 
 $
   & P(X_n > 0) <= E(X_n) -> 0 "if" mu < 1 \
