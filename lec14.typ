@@ -8,7 +8,7 @@ Last week we proved the main MC theorem for finite state space MC's:
 
 1. There is a SD $pi$: $pi = pi underline(P)$ & $sum pi_j = 1$
 2. $lim_(n -> oo) p_(i j)^n = pi_j$ for all $i, j$.
-3. $pi_j = lim_(n -> oo) (N_n(j)) / n$ = LR prop. of steps in state $j$ $= 1 / (E_j T_j)$ = inverse mean return time to $j$
+3. $pi_j = lim_(n -> oo) (N_n (j)) / n$ = LR prop. of steps in state $j$ $= 1 / (E_j T_j)$ = inverse mean return time to $j$
 
 #pagebreak()
 
