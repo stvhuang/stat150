@@ -143,7 +143,7 @@ $
 *Proof*.
 
 $
-  underbrace(P(X_n=0), "Die out by time n.") = sum_(k=0)^oo P(xi=k) underbrace(P(X_(n-1)=0)^k, #footnote[All family trees of all k children of 1st particle must die out (independently) by time n-1.])
+  underbrace(P(X_n=0), "Die out by time" n) = sum_(k=0)^oo P(xi=k) underbrace(P(X_(n-1)=0)^k, #footnote[All family trees of all k children of 1st particle must die out (independently) by time $n-1$.])
 $
 
 #pagebreak()
