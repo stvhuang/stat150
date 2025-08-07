@@ -24,13 +24,9 @@ $
 $
 
 $
-  g(0) = g(N) = 0 "for" i in {1, 2, dots, N-1}
+  g(0) & = g(N) = 0 "for" i in {1, 2, dots, N-1} \
+  g(i) & = 1#footnote[1 step, then start from $i-1$ or $i+1$.] + q g(i-1) + p g(i+1)
 $
-
-$
-  g(i) = 1 + q g(i-1) + p g(i+1)
-$
-1 step, then start from $i-1$ or $i+1$.
 
 #pagebreak()
 
@@ -47,7 +43,7 @@ Then $g(i) = E_i (V_A)$ if $P_i (V_A < infinity) > 0$ for all $i in C$.
 
 #pagebreak()
 
-Eg Waiting time for TT while flipping a fair coin
+Eg Waiting time for TT#footnote[2 tails in a row] while flipping a fair coin
 
 $
   S = {0, 1, 2}
@@ -58,13 +54,13 @@ The first time we see TT is the first time we visit 2, started at 0: $E_0 (V_2)$
 
 #pagebreak()
 
-To find $E_i (V_2)$, we solve
+To find $g_i = E_i (V_2)$, we solve
 
 $
   cases(
-    h_2 = 0,
-    h_0 = 1 + 1/2 (h_0 + h_1),
-    h_1 = 1 + 1/2 h_0
+    g_2 = 0,
+    g_0 = 1 + 1/2 (g_0 + g_1),
+    g_1 = 1 + 1/2 g_0 + cancel(1/2 g_2)
   )
 $
 
