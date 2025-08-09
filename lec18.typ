@@ -37,7 +37,7 @@ $
   g(i) & = 1 + sum_j p_(i j) g(j) & quad i in C
 $
 
-Then $g(i) = E_i (V_A)$ if $P_i (V_A < infinity) > 0$ for all $i in C$.
+Then $g(i) = E_i (V_A)$ if $P_i (V_A < oo) > 0$ for all $i in C$.
 
 - For gambler's ruin, take $A = {0, N}$.
 
@@ -104,7 +104,7 @@ Poisson Processes
 
 #pagebreak()
 
-- The (1-dimensional) Poisson process is a point process on the line $[0, infinity)$ with i.i.d. exponential "inter-arrival times" between points.
+- The (1-dimensional) Poisson process is a point process on the line $[0, oo)$ with i.i.d. exponential "inter-arrival times" between points.
 
 #figure[
   #image(
@@ -192,7 +192,7 @@ $
 $
 
 $
-  f_(T_n)(t) = lambda e^(-lambda t) ((lambda t)^(n-1))/((n-1)!) , quad t >= 0
+  f#footnote[PDF] _(T_n)(t) = lambda e^(-lambda t) ((lambda t)^(n-1))/((n-1)!) , quad t >= 0
 $
 
 - Proof: Induction (see [D]).
@@ -202,22 +202,25 @@ $
 
 3. Minimum of independent exponential RVs is exponential. Its rate is the sum of rates:
 
-Theorem. $X_i tilde "Exp"(lambda_i)$, and all $X_i$ independent. Then
-i) $M = min{X_1, dots, X_n} limits(=)^("d") "Exp"(sum_(i=1)^n lambda_i)$
+Theorem. $X_i ~ "Exp"(lambda_i)$, and all $X_i$ independent. Then
+
+i) $M = min{X_1, dots, X_n} =^d "Exp"(sum_(i=1)^n lambda_i)$
+
 Moreover, let $I =$ index of smallest $X_i$, $M = X_I$. Then,
 
 #pagebreak()
 
 ii) $P(I=i) = (lambda_i) / (sum_(j=1)^n lambda_j)$ \
-iii) $I, M$ are independent.
+iii) $I, M#footnote[$= X_I$]$ are independent.
 
 Part (iii) is perhaps the most surprising.
 
 #pagebreak()
 
-*Proof:*
+Proof:
 
 i)
+
 $
   P(M > t) & = P("all" X_i > t) \
            & = product_(i=1)^n P(X_i > t) "(indep.)" \
@@ -232,19 +235,19 @@ ii) Can be proved easily by induction --- see [D].
 iii)
 
 $
-  f_(I, M)(i, t) &= lambda_i e^(-lambda_i t) product_(j != i) e^(-lambda_j t) \
-  &= (lambda_i)/(sum_j lambda_j) dot (sum_j lambda_j) e^(-(sum_j lambda_j)t) \
-  &= P(I=i) f_M(t)
+  f_(I, M)(i, t) &= lambda_i e^(-lambda_i t) product_(j != i)#footnote[All other RVs must be bigger than $t$, i.e., survival function.] e^(-lambda_j t) \
+  &= (lambda_i)/(sum_j lambda_j) dot underbrace((sum_j lambda_j) e^(-(sum_j lambda_j)t), "PDF of a rate" sum lambda_i "Exp. RV.") \
+  &= P(I=i)#footnote[By part ii).] f_M (t)
 $
 
 #pagebreak()
 
 §2.2 --- Defining the Poisson Process
 
-Recall: $X tilde "Poisson"(lambda)$ if
+Recall: $X tilde "Poisson"(mu)$ if
 
 $
-  P(X=k) = e^(-lambda) (lambda^k)/(k!) , quad k=0, 1, 2, dots
+  P(X=k) = e^(-mu) (mu^k)/(k!) , quad k=0, 1, 2, dots
 $
 
 Can show:
@@ -261,24 +264,25 @@ See [D].
 Also easy to show:
 
 *Theorem.*
-If $X_i tilde "Poisson"(lambda_i)$ and all $X_i$ indep. then
+If $X_i tilde "Poisson"(lambda_i)$ and all $X_i$ indep. Then
+
 $
   sum_(i=1)^n X_i tilde "Poisson"(sum_(i=1)^n lambda_i).
 $
 
-*Proof:* Stat 134. See [D], by induction. $square$
+*Proof:* Stat 134. See [D], by induction. $quad square$
 
 #pagebreak()
 
 The Poisson Process
 
-*Definition*
-$(N_t : 0 <= t < infinity)$ is a rate $lambda$ Poisson Process — $PP(lambda)$ — if
+*Def*
+$(N_t : 0 <= t < oo)$ is a rate $lambda$ Poisson Process — $PP(lambda)$ — if
 
 1. $N_0 = 0$
-2. $N_(t+s) - N_s limits(=)^("d") "Poisson"(t lambda)$, for *any* $t,s >= 0$
+2. $N_(t+s) - N_s =^d "Poisson"(t lambda)$, *for any* $t,s >= 0$
 3. Indep. increments:
 $
-  N_(t_1) - N_(t_0), N_(t_2) - N_(t_1), ..., N_(t_n) - N_(t_(n-1))
+  N_(t_1) - N_(t_0), N_(t_2) - N_(t_1), dots, N_(t_n) - N_(t_(n-1))
 $
-indep. for *any* $t_0 < t_1 < ... < t_n$.
+indep. for *any* $t_0 < t_1 < dots < t_n$.
