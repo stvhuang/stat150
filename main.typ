@@ -17,6 +17,7 @@
   title-color: rgb("#002676"),
 )
 
+// Markov Chain
 #include "./lec03.typ"
 #include "./lec04.typ"
 #include "./lec05.typ"
@@ -32,4 +33,8 @@
 #include "./lec15.typ"
 #include "./lec16.typ"
 #include "./lec17.typ"
+
+// Poisson Process
 #include "./lec18.typ"
+#include "./lec19.typ"
+#include "./lec20.typ"
