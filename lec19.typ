@@ -1,275 +1,239 @@
 == Lecture 19
 
-$
-  N_(t_1) - N_(t_0) = "# points in" (t_0, t_1]
-$
+The Poisson Process
 
-$
-  (d)(=) "Poisson"(lambda (t_1 - t_0))
-$
-"length of" $ [t_0, t_1] $
+*Def*
+$(N_t : 0 <= t < oo)$ is a rate $lambda$ Poisson Process — $"PP"(lambda)$ — if
 
-*Indep.* of $ N_(t_2) - N_(t_1) = "# points in" (t_1, t_2] $
+1. $N_0 = 0$
+2. $N_(t+s) - N_s =^d "Poisson"(t lambda)$, *for any* $t,s >= 0$
+3. Indep. increments:
 $
-  (d)(=) "Poisson"(lambda (t_2 - t_1))
+  N_(t_1) - N_(t_0), N_(t_2) - N_(t_1), dots, N_(t_n) - N_(t_(n-1))
 $
-"length of" $ [t_1, t_2] $
+indep. for *any* $t_0 < t_1 < dots < t_n$.
 
-// Timeline
-$
-  underbrace(t_0 " * " t_1)_("N_(t_1) - N_(t_0) = 2") " * " t_2 underbrace(" * " t_3)_("N_(t_2) - N_(t_1) = 1")
-$
+#pagebreak()
 
-$
-  N_0 = 0
-$
-because no points yet at time 0.
+#text(size: 10pt)[
+  $
+    N_(t_1) - N_(t_0) & = "# points in" (t_0, t_1] \
+    & =^d "Poisson"(lambda (t_1 - t_0)#footnote[length of $[t_0, t_1]$])
+  $
+
+  $
+    "*Indep.* of" N_(t_2) - N_(t_1) & = "# points in" (t_1, t_2] \
+    & =^d "Poisson"(lambda (t_2 - t_1)#footnote[length of $[t_1, t_2]$])
+  $
+
+  #figure[
+    #image(
+      "./figs/p19_06m.png",
+      width: 50%,
+    )
+  ]
+
+  $N_0 = 0$ because no points yet at time 0.
+]
 
 #pagebreak()
 
 In particular,
 $
-  N_t = "# points in" (0, t]
-$
-$
-  = "# points by time" t
-$
-$
-  (d)(=) "Poisson"(lambda t).
+  N_t#footnote[$=N_t - N_0$] & = "# points in" (0, t] \
+                             & = "# points by time" t \
+                             & =^d "Poisson"(lambda t).
 $
 
 This is why it is called a Poisson process.
 
 #pagebreak()
 
-Constructing a rate $lambda$
-
-Poisson process:
+Constructing a rate $lambda$ Poisson process:
 
 $
-  T_1, T_2, ... " iid Exp"(lambda).
-$
-Let $ T_n = sum_(i=1)^n T_i (d)(=) "Gamma"(n, lambda). $
-
-If we think of $T_i$
-\= lifetime of $i$th lightbulb, then $T_n$
-is the time at which we have gone through $n$
-lightbulbs in total.
-
-// Timeline
-// $
-//   0 mark(.. T_1 ..) " * " mark(.. T_2 ..) " * " mark(.. T_3 ..)
-// $
-
-#pagebreak()
-
-Let $ N_t = max {n: T_n <= t} $
-$
-  = "# of * to left of" t
+  tau_1, tau_2, dots " iid Exp"(lambda).
 $
 
-// Timeline example
+Let
+
 $
-  T_1 " * " T_2 " * " t " * " T_3
+  T_n = sum_(i=1)^n tau_i =^d "Gamma"(n, lambda).
 $
-$
-  N_t = 2
-$
-since $ T_2 < t < T_3 $
+
+If we think of $tau_i =$ lifetime of $i$th lightbulb, then $T_n$ is the time at which we have gone through $n$ lightbulbs in total.
+
+#figure[
+  #image(
+    "./figs/p19_12m.png",
+    width: 32%,
+  )
+]
 
 #pagebreak()
 
-Let $ N_t = max {n: T_n <= t} $
 $
-  = "# of * to left of" t
+  "Let" N_t & = max {n: T_n <= t} \
+            & = "# of * to left of" t
 $
 
-// Timeline example
-$
-  T_1 " * " T_2 " * " t " * " T_3
-$
-$
-  N_t = 2
-$
-since $ T_2 < t < T_3 $
+#figure[
+  #image(
+    "./figs/p19_15m.png",
+    width: 40%,
+  )#footnote[Poisson is discrete in values but continuous in time.]
+]
 
-This corresponds to a step function graph that is 0 until $T_1$, 1 from $T_1$
-to $T_2$, 2 from $T_2$
-to $T_3$, and so on. It jumps by 1 at each $T_i$.
-We will show that $ (N_t)_(t>=0) $
-is a $PP(lambda)$.
-Clearly $ N_0 = max{n>=0: T_n <= 0} = 0 $
+#pagebreak()
+
+We will show that $(N_t)_(t>=0)$ is a $"PP"(lambda)$.
+
+Clearly $N_0 = max{n>=0: T_n <= 0} = 0$.
+
 So we need to check (2.) & (3.) in definition above.
 
 First step:
-*Lemma.* $ N_t ~ "Poisson"(lambda t) $
 
-#pagebreak()
-
-*Proof.* $ { N_t = n } = { T_n <= t < T_(n+1) }. $
-
-I.e., to have exactly $n$
-points by time $t$, we need $n$th point to arrive by time $t$
-& $(n+1)$th point to arrive at some later time $>t$.
-$
-  T_n, T_(n+1)
-$
-indep. Why?
+*Lemma.*
 
 $
-  therefore P(N_t = n) = integral_0^t f_(T_n)(s) P(T_(n+1) > t-s) diff s
-$
-
-// Timeline
-$
-  0 " * " ... " * " s " --- " t " --- " (n+1) "th * somewhere to right of t"
+  N_t ~ "Poisson"(lambda t)
 $
 
 #pagebreak()
 
+*Proof.* ${ N_t = n } = { T_n <= t < T_(n+1) }.$
+
+I.e., to have exactly $n$ points by time $t$, we need $n$th point to arrive by time $t$ & $(n+1)^"th"$ point to arrive at some later time $>t$.
+
 $
-  T_n ~ "Gamma"(n, lambda).
+  therefore P(N_t = n)#footnote[$T_n$, $T_(n-1)$ indep, why?] = integral_0^t f_(T_n)(s) P(T_(n+1) > t-s) d s
 $
+
+#figure[
+  #image(
+    "./figs/p19_21m.png",
+    width: 54%,
+  )
+]
+
+#pagebreak()
+
 $
-  f_(T_n)(s) = lambda e^(-lambda s) ((lambda s)^(n-1)) / ((n-1)!)
+  & T_n ~ "Gamma"(n, lambda). quad f_(T_n)(s) = lambda e^(-lambda s) ((lambda s)^(n-1)) / ((n-1)!) \
+  & T_(n+1) ~ "Exp"(lambda) quad P(T_(n+1) > t-s) = e^(-lambda(t-s))
 $
 
 $
-  T_(n+1) ~ "Exp"(lambda)
-$
-$
-  P(T_(n+1) > t-s) = e^(-lambda(t-s))
-$
-
-$
-  therefore P(W_t = n) = integral_0^t lambda e^(-lambda s) ((lambda s)^(n-1))/((n-1)!) e^(-lambda(t-s)) diff s
-$
-$
-  = e^(-lambda t) lambda^n/((n-1)!) integral_0^t s^(n-1) diff s = e^(-lambda t) ((lambda t)^n)/(n!)
+  therefore P(W_t = n) & = integral_0^t lambda e^(-lambda s) ((lambda s)^(n-1))/((n-1)!) e^(-lambda(t-s)) d s \
+  & = e^(-lambda t) lambda^n/((n-1)!) integral_0^t s^(n-1) d s = e^(-lambda t) ((lambda t)^n)/(n!) \
+  & = P("Poisson"(lambda t) = n).
 $
 
 #pagebreak()
 
-We now check parts (2.) & (3.) in definition of $PP(lambda)$.
+We now check parts (2.) & (3.) in definition of $"PP"(lambda)$.
 
 The key is LoM & Lemma.
 
-*Proof of (2):* $ N_(t+s) - N_s ~ "Poisson"(lambda t). $
+Proof of (2): $N_(t+s) - N_s ~ "Poisson"(lambda t).$
 
-// Timeline
-$
-  0 " * * " s
-$
+#figure[
+  #image(
+    "./figs/p19_30m.png",
+    width: 60%,
+  )
+]
 
 By LoM the lightbulbs burning at time $s$
 starts afresh.
 
 #pagebreak()
 
-So if we ignore $ * $
-to left of $s$, & start counting $ * $
-starting at time $s$, we have another iid sequence of $ "Exp"(lambda) $
-inter-arrival times.
+So if we ignore $*$ to left of $s$, & start counting $*$ starting at time $s$, we have another iid sequence of $"Exp"(lambda)$ inter-arrival times.
 
-So by Lemma, the \# of $ * $
-between $s$
-& $s+t$
-is $ "Poisson"(lambda t) $. Note the \# of such $ * $
-is $ N_(s+t) - N_s $
+So by Lemma, the \# of $*$ between $s$ & $s+t$ is $"Poisson"(lambda t)$.
+Note the \# of such $*$
+is $N_(s+t)#footnote[\# of $*$ to left of $t+s$] - N_s#footnote[\# of $*$ to left of $s$]$.
+
+#pagebreak()
+
+Moreover, observe that
 
 $
-  N_(s+t) - N_s
+  (N_(t+s) - N_s)_(t>=0) quad \& quad (N_r)_(r<=s)
 $
-// Annotations below the formula
-// #h(2em) $
-// uparrow $
-// #h(4em) $
-// uparrow $
-// #h(1em) # of $
-// * $
-// to left of $s+t$. #h(1em) # of $
-// * $
-to left of $s$.
 
-Moreover, observe that $ (N_(t+s) - N_s)_(t>=0) & (N_r)_(r<=s) $
 are independent.
 
-This is because the length of time until a \* after $s$
-is indep. of whatever happened before time $s$
-(again by LoM).
+This is because the length of time until a \* after $s$ is indep. of whatever happened before time $s$ (again by LoM).
 
 #pagebreak()
 
 Finally, we check (3.)
 
-*Proof of indep. increments:*
+Proof of indep. increments:
 This follows by induction.
-The previous slide shows $ (N_(t+t_(n-1)) - N_(t_(n-1)))_(t>=0) & (N_r)_(r<=t_(n-1)) $
+The previous slide shows
+$(N_(t+t_(n-1)) - N_(t_(n-1)))_(t>=0) & (N_r)_(r<=t_(n-1))$
 indep.
 
-$
-  therefore
-$
-In particular, $ N_(t_n) - N_(t_(n-1)) & N_(t_(n-1)) - N_(t_(n-2)), ..., N_(t_1) - N_(t_0) $
+$therefore$ In particular, $ N_(t_n) - N_(t_(n-1)), N_(t_(n-1)) - N_(t_(n-2)), dots, N_(t_1) - N_(t_0) $
 are indep.
 
 #pagebreak()
 
-We'll skip $ inter. 2.2.2 $
+We'll skip §2.2.2
 on "more realistic models" for now.
 
-The non-homogeneous Poisson process on p.105 is interesting. We may put something on HW #3 about this --- take a look yourself.
+The non-homogeneous Poisson process on p.105 is interesting.
+We may put something on HW \#3 about this --- take a look yourself.
 
 #pagebreak()
 
-$
-  inter. 2.3
-$
--- Compound Poisson Processes.
+§2.3 -- Compound Poisson Processes.
 
 It is often useful to add one more layer of randomness.
 
-*Eg* $ (N_t)_(t>=0) $
-is a $PP(lambda)$
-modelling occurrences of earthquakes over time on Hayward fault.
+*Eg* $(N_t)_(t>=0)$ is a $"PP"(lambda)$ modelling occurrences of earthquakes over time on Hayward fault.
 
 Moreover, suppose each earthquake
 
 #pagebreak()
 
-has an iid magnitude $ Y_i $
-which is also indep. of $ (N_t) $.
+Has an iid magnitude $Y_i$ which is also indep. of $(N_t)$.
 
 Then
+
 $
-  S_t = sum_(i=1)^(N_t) Y_i
+  S_t = sum_(i=1)^(N_t) Y_i#footnote[Compound Poisson Process.]
 $
-"Compound Poisson Process."
 
 is the total magnitude felt along fault by time $t$.
 
 #pagebreak()
 
-Note: For a regular $PP(lambda)$, all $Y_i = 1$.
+Note: For a regular $"PP"(lambda)$, all $Y_i = 1$.
 
-\* More examples of compound Poisson processes in $inter. 2$.
+\* More examples of compound Poisson processes in §2.2.
 
 #pagebreak()
 
-*Theorem.* $ (N_t) $
-a $PP(lambda)$. $ (Y_i) $
-an iid sequence indep. of $(N_t)$. Let
+*Theorem.* $(N_t)$ a $"PP"(lambda)$.
+$(Y_i)$ an iid sequence indep. of $(N_t)$.
+Let
+
 $
   S_t = sum_(i=1)^(N_t) Y_i
 $
+
 denote the compound Poisson process.
 
 Then
+
 $
-  E S_t = lambda t E Y
-$
-$
-  "Var" S_t = lambda t E(Y^2).
+      E S_t & = lambda t E Y \
+  "Var" S_t & = lambda t E(Y^2).
 $
 
 #pagebreak()

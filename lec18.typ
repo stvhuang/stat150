@@ -271,18 +271,3 @@ $
 $
 
 *Proof:* Stat 134. See [D], by induction. $quad square$
-
-#pagebreak()
-
-The Poisson Process
-
-*Def*
-$(N_t : 0 <= t < oo)$ is a rate $lambda$ Poisson Process — $PP(lambda)$ — if
-
-1. $N_0 = 0$
-2. $N_(t+s) - N_s =^d "Poisson"(t lambda)$, *for any* $t,s >= 0$
-3. Indep. increments:
-$
-  N_(t_1) - N_(t_0), N_(t_2) - N_(t_1), dots, N_(t_n) - N_(t_(n-1))
-$
-indep. for *any* $t_0 < t_1 < dots < t_n$.
