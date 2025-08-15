@@ -238,10 +238,35 @@ $
 
 #pagebreak()
 
-*Eg* Customers arrive at a store according to a rate $lambda=81$
-Poisson process.
+In a similar way, we can calculate 2nd moment:
 
-Suppose each customer spends an iid amount of money with mean `$8` & SD `$6`. Find the mean revenue after 1 day, i.e. at time $t=1$. Also find its SD.
+$
+  E(S_t^2) &= sum_(n=0)^oo P(N_t = n) E(S_t^2 | N_t = n) \
+  &= sum_(n=0)^oo P(N_t = n) [n "Var"Y + (n E Y)^2#footnote[$"Var"X = E(X^2) - (E X)^2$]] \
+  &= "Var"Y E(N_t) + (E Y)^2 E(N_t^2) \
+  &= lambda t ( "Var"Y + (E Y)^2 ) \
+  &= lambda t E(Y^2) quad square
+$
+
+#pagebreak()
+
+#text(size: 10pt)[
+  Proof
+
+  $
+    E(S_t) &= sum_(n=0)^oo P(N_t = n) E(S_t | N_t = n) \
+    &= sum_(n=0)^oo P(N_t = n) n E Y#footnote[$S_t | (N_t=n) = sum_(i=1)^n Y_i$] \
+    &= E Y sum_(n=0)^oo n P(N_t = n) \
+    &= E Y dot E(N_t) \
+    &= lambda t E Y#footnote[$N_t ~ "Poisson"(lambda t)$]
+  $
+]
+
+#pagebreak()
+
+*Eg* Customers arrive at a store according to a rate $lambda = 81$ Poisson process.
+
+Suppose each customer spends an IID amount of money with mean \$8 and SD \$6. Find the mean revenue after 1 day, i.e. at time $t=1$. Also find its SD.
 
 #pagebreak()
 
@@ -249,8 +274,12 @@ $
   R = sum_(i=1)^(N_1) Y_i, quad E Y = 8, quad "Var" Y = 36, quad N_1 ~ "Poisson"(81)
 $
 
-By theorem, $ E R = 81 dot 8 = $648 $$
-& Var R = 81 E(Y^2) $$
-\= 81 (Var Y + (E Y)^2) $$
-\= 81 (36 + 64) = 8100. $$
-therefore SD(R) = sqrt(8100) = $90$
+By theorem, $E R = 81 dot 8 = \$648$
+
+$
+  \& "Var" R & = 81 E(Y^2) \
+             & = 81 ("Var" Y + (E Y)^2) \
+             & = 81 (36 + 64) = 8,100
+$
+
+therefore $"SD"(R) = sqrt(8100) = \$90$
