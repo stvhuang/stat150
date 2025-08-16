@@ -3,13 +3,13 @@
 The Poisson Process
 
 *Def*
-$(N_t : 0 <= t < oo)$ is a rate $lambda$ Poisson Process — $"PP"(lambda)$ — if
+$(N_t : 0 <= t#footnote[continuously] < oo)$ is a rate $lambda$ Poisson Process — $"PP"(lambda)$ — if
 
 1. $N_0 = 0$
 2. $N_(t+s) - N_s =^d "Poisson"(t lambda)$, *for any* $t,s >= 0$
 3. Indep. increments:
 $
-  N_(t_1) - N_(t_0), N_(t_2) - N_(t_1), dots, N_(t_n) - N_(t_(n-1))
+  N_(t_1) - N_(t_0), N_(t_3) - N_(t_2), dots, N_(t_n) - N_(t_(n-1))#footnote[sequence of disjoint intervals]
 $
 indep. for *any* $t_0 < t_1 < dots < t_n$.
 
@@ -18,12 +18,12 @@ indep. for *any* $t_0 < t_1 < dots < t_n$.
 #text(size: 10pt)[
   $
     N_(t_1) - N_(t_0) & = "# points in" (t_0, t_1] \
-    & =^d "Poisson"(lambda (t_1 - t_0)#footnote[length of $[t_0, t_1]$])
+    "(2.)" & =^d "Poisson"(lambda (t_1 - t_0)#footnote[length of $(t_0, t_1]$])
   $
 
   $
-    "*Indep.* of" N_(t_2) - N_(t_1) & = "# points in" (t_1, t_2] \
-    & =^d "Poisson"(lambda (t_2 - t_1)#footnote[length of $[t_1, t_2]$])
+    "(3.)" "*Indep.* of" N_(t_2) - N_(t_1) & = "# points in" (t_1, t_2] \
+    & =^d "Poisson"(lambda (t_2 - t_1)#footnote[length of $(t_1, t_2]$])
   $
 
   #figure[
@@ -33,12 +33,13 @@ indep. for *any* $t_0 < t_1 < dots < t_n$.
     )
   ]
 
-  $N_0 = 0$ because no points yet at time 0.
+  (1.) $N_0 = 0$ because no points yet at time 0.
 ]
 
 #pagebreak()
 
-In particular,
+In particular, all
+
 $
   N_t#footnote[$=N_t - N_0$] & = "# points in" (0, t] \
                              & = "# points by time" t \
@@ -49,40 +50,35 @@ This is why it is called a Poisson Process.
 
 #pagebreak()
 
-Constructing a rate $lambda$ Poisson Process:
+*Constructing a rate $lambda$ Poisson Process:*
 
-$
-  tau_1, tau_2, dots " iid Exp"(lambda).
-$
+$tau_1, tau_2, dots " iid Exp"(lambda)$
 
-Let
-
-$
-  T_n = sum_(i=1)^n tau_i =^d "Gamma"(n, lambda).
-$
+Let $T_n = sum_(i=1)^n tau_i =^d "Gamma"(n, lambda)$.
 
 If we think of $tau_i =$ lifetime of $i$th lightbulb, then $T_n$ is the time at which we have gone through $n$ lightbulbs in total.
 
-#figure[
+#figure()[
   #image(
     "./figs/p19_12m.png",
-    width: 32%,
+    width: 60%,
   )
 ]
 
+$T_0 = 0, quad T_1 = tau_1, quad T_2 = tau_1 + tau_2$
+
 #pagebreak()
 
-$
-  "Let" N_t & = max {n: T_n <= t} \
-            & = "# of * to left of" t
-$
+Let $N_t = max {n: T_n <= t} = "# of * to left of" t$
 
 #figure[
   #image(
     "./figs/p19_15m.png",
-    width: 40%,
-  )#footnote[Poisson is discrete in values but continuous in time.]
+    width: 85%,
+  )
 ]
+
+Poisson is discrete in values but continuous in time.
 
 #pagebreak()
 
@@ -94,38 +90,36 @@ So we need to check (2.) & (3.) in definition above.
 
 First step:
 
-*Lemma.*
-
-$
-  N_t ~ "Poisson"(lambda t)
-$
+*Lemma.* $N_t ~ "Poisson"(lambda t)$
 
 #pagebreak()
 
-*Proof.* ${ N_t = n } = { T_n <= t < T_(n+1) }.$
+#text(size: 10pt)[
+  *Proof.* ${ N_t = n } = { T_n <= t < T_(n+1) }.$
 
-I.e., to have exactly $n$ points by time $t$, we need $n$th point to arrive by time $t$ & $(n+1)^"th"$ point to arrive at some later time $>t$.
+  I.e., to have exactly $n$ points by time $t$, we need $n^"th"$ point to arrive by time $t$ & $(n+1)^"th"$ point to arrive at some later time $>t$.
 
-$
-  therefore P(N_t = n)#footnote[$T_n$, $T_(n-1)$ indep, why?] = integral_0^t f_(T_n)(s) P(T_(n+1) > t-s) d s
-$
+  $
+    therefore P(N_t = n)#footnote[$T_n$, $T_(n-1)$ indep, why?] = integral_0^t f_(T_n)(s)#footnote[PDF for arrival time of $n^"th"$ point, $T_n = sum_(i=1)^n tau_i$] P(tau_(n+1) > t-s) d s
+  $
 
-#figure[
-  #image(
-    "./figs/p19_21m.png",
-    width: 54%,
-  )
+  #figure[
+    #image(
+      "./figs/p19_21m.png",
+      width: 60%,
+    )
+  ]
 ]
 
 #pagebreak()
 
 $
-  & T_n ~ "Gamma"(n, lambda). quad f_(T_n)(s) = lambda e^(-lambda s) ((lambda s)^(n-1)) / ((n-1)!) \
-  & T_(n+1) ~ "Exp"(lambda) quad P(T_(n+1) > t-s) = e^(-lambda(t-s))
+  & T_n ~ "Gamma"(n, lambda), quad f_(T_n)(s) = lambda e^(-lambda s) ((lambda s)^(n-1)) / ((n-1)!) \
+  & tau_(n+1) ~ "Exp"(lambda), quad P(tau_(n+1) > t-s) = e^(-lambda(t-s))
 $
 
 $
-  therefore P(W_t = n) & = integral_0^t lambda e^(-lambda s) ((lambda s)^(n-1))/((n-1)!) e^(-lambda(t-s)) d s \
+  therefore P(N_t = n) & = integral_0^t lambda e^(-lambda s) ((lambda s)^(n-1))/((n-1)!) e^(-lambda(t-s)) d s \
   & = e^(-lambda t) lambda^n/((n-1)!) integral_0^t s^(n-1) d s = e^(-lambda t) ((lambda t)^n)/(n!) \
   & = P("Poisson"(lambda t) = n).
 $
@@ -134,7 +128,7 @@ $
 
 We now check parts (2.) & (3.) in definition of $"PP"(lambda)$.
 
-The key is LoM & Lemma.
+The key is LoM#footnote[lack of memory] & Lemma.
 
 Proof of (2): $N_(t+s) - N_s ~ "Poisson"(lambda t).$
 
@@ -145,12 +139,11 @@ Proof of (2): $N_(t+s) - N_s ~ "Poisson"(lambda t).$
   )
 ]
 
-By LoM the lightbulbs burning at time $s$
-starts afresh.
+By LoM the lightbulbs burning at time $s$ starts afresh.
 
 #pagebreak()
 
-So if we ignore $*$ to left of $s$, & start counting $*$ starting at time $s$, we have another iid sequence of $"Exp"(lambda)$ inter-arrival times.
+So if we ignore $*$ to left of $s$, & start counting $*$ starting at time $s$, we have another IID sequence of $"Exp"(lambda)$ inter-arrival times.
 
 So by Lemma, the \# of $*$ between $s$ & $s+t$ is $"Poisson"(lambda t)$.
 Note the \# of such $*$
@@ -164,30 +157,38 @@ $
   (N_(t+s) - N_s)_(t>=0) quad \& quad (N_r)_(r<=s)
 $
 
-are independent.
+are independent.#footnote[This follows by 1. LoM, 2. $tau_i$ are IID.]
 
 This is because the length of time until a \* after $s$ is indep. of whatever happened before time $s$ (again by LoM).
 
 #pagebreak()
 
-Finally, we check (3.)
+#text(size: 11pt)[
+  Finally, we check (3.)
 
-Proof of indep. increments:
-This follows by induction.
-The previous slide shows
-$(N_(t+t_(n-1)) - N_(t_(n-1)))_(t>=0) & (N_r)_(r<=t_(n-1))$
-indep.
+  Proof of indep. increments:
 
-$therefore$ In particular, $ N_(t_n) - N_(t_(n-1)), N_(t_(n-1)) - N_(t_(n-2)), dots, N_(t_1) - N_(t_0) $
-are indep.
+  This follows by induction.
+  The previous slide shows $(N_(t+t_(n-1)) - N_(t_(n-1)))_(t>=0)$ & $(N_r)_(r<=t_(n-1))$ indep.
+
+  $therefore$ In particular,
+
+  $
+    underbrace(N_(t_n) - N_(t_(n-1)), #text[depends on \ $(N_(t+t_(n-1)) - N_(t_(n-1)))_(t>=0)$]), underbrace(#text[$N_(t_(n-2)) - N_(t_(n-3)), dots, N_(t_1) - N_(t_0)$], #text[depends on \ $(N_r)_(r<=t_(n-1))$])
+  $
+
+  are indep.
+]
 
 #pagebreak()
 
 We'll skip §2.2.2
 on "more realistic models" for now.
 
-The non-homogeneous Poisson Process on p.105 is interesting.
-We may put something on HW \#3 about this --- take a look yourself.
+$"PP"(lambda)$ pts arrive at rate $lambda$, independent of time $t$.
+
+The non-homogeneous#footnote[$lambda_t$ depends on $t$] Poisson Process on p.105 is interesting.
+We may put something on HW \#3 about this -- take a look yourself.
 
 #pagebreak()
 
@@ -201,7 +202,7 @@ Moreover, suppose each earthquake
 
 #pagebreak()
 
-Has an iid magnitude $Y_i$ which is also indep. of $(N_t)$.
+Has an IID magnitude $Y_i$ which is also indep. of $(N_t)$.
 
 Then
 
@@ -220,7 +221,8 @@ Note: For a regular $"PP"(lambda)$, all $Y_i = 1$.
 #pagebreak()
 
 *Theorem.* $(N_t)$ a $"PP"(lambda)$.
-$(Y_i)$ an iid sequence indep. of $(N_t)$.
+$(Y_i)$ an IID sequence indep. of $(N_t)$.
+
 Let
 
 $
@@ -274,7 +276,7 @@ $
   R = sum_(i=1)^(N_1) Y_i, quad E Y = 8, quad "Var" Y = 36, quad N_1 ~ "Poisson"(81)
 $
 
-By theorem, $E R = 81 dot 8 = \$648$
+By theorem, $E R = 81#footnote[$lambda t = lambda dot 1 = 81$] dot 8#footnote[$E Y$] = \$648$
 
 $
   \& "Var" R & = 81 E(Y^2) \
@@ -282,4 +284,4 @@ $
              & = 81 (36 + 64) = 8,100
 $
 
-therefore $"SD"(R) = sqrt(8100) = \$90$
+$therefore "SD"(R) = sqrt(8100) = \$90$
