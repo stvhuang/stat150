@@ -21,7 +21,7 @@ Indep. of $T_1, T_2, dots$ Reward $r_n$ is received at time $T_n = sum_(i=1)^n T
 $
   R_t = sum_(i=1)^(N_t) r_i
 $
-= Total reward by time $t$.
+\= Total reward by time $t$.
 
 *Main theorem*
 $
