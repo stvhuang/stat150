@@ -45,11 +45,11 @@ $
                              & =^d "Poisson"(lambda t).
 $
 
-This is why it is called a Poisson process.
+This is why it is called a Poisson Process.
 
 #pagebreak()
 
-Constructing a rate $lambda$ Poisson process:
+Constructing a rate $lambda$ Poisson Process:
 
 $
   tau_1, tau_2, dots " iid Exp"(lambda).
@@ -186,7 +186,7 @@ are indep.
 We'll skip §2.2.2
 on "more realistic models" for now.
 
-The non-homogeneous Poisson process on p.105 is interesting.
+The non-homogeneous Poisson Process on p.105 is interesting.
 We may put something on HW \#3 about this --- take a look yourself.
 
 #pagebreak()
@@ -215,7 +215,7 @@ is the total magnitude felt along fault by time $t$.
 
 Note: For a regular $"PP"(lambda)$, all $Y_i = 1$.
 
-\* More examples of compound Poisson processes in §2.2.
+\* More examples of compound Poisson Processes in §2.2.
 
 #pagebreak()
 
@@ -227,7 +227,7 @@ $
   S_t = sum_(i=1)^(N_t) Y_i
 $
 
-denote the compound Poisson process.
+denote the compound Poisson Process.
 
 Then
 
@@ -264,7 +264,7 @@ $
 
 #pagebreak()
 
-*Eg* Customers arrive at a store according to a rate $lambda = 81$ Poisson process.
+*Eg* Customers arrive at a store according to a rate $lambda = 81$ Poisson Process.
 
 Suppose each customer spends an IID amount of money with mean \$8 and SD \$6. Find the mean revenue after 1 day, i.e. at time $t=1$. Also find its SD.
 
