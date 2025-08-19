@@ -1,3 +1,5 @@
+= Renewal Processes
+
 == Lecture 22
 
 A renewal process is a generalization of the Poisson point processes.

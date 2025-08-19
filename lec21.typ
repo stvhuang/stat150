@@ -119,7 +119,7 @@ Let $(N_t)$ be a $"PP"(lambda)$.
 Then conditional on $N_t = n$, the arrival times $T_k = sum_(i=1)^k tau_i$, $1 <= k <= n$, are distributed as the order statistics of $n$ IID $"Uniform"(0, t)$ random variables.
 
 $u_1, u_2, dots, u_n$ IID $"Uniform"(0, t)$ \
-$u_((1)), u_((2)), dots, u_((n))$ (order statistics)
+$u_((1)), u_((2)), dots, u_((n))$ order statistics
 
 - $u_((1))$: smallest $u_i = T_1$ (1st arrival time)
 - $u_((2))$: 2nd smallest $u_i = T_2$
@@ -128,99 +128,100 @@ $u_((1)), u_((2)), dots, u_((n))$ (order statistics)
 
 #pagebreak()
 
-Example
+*Eg*
 Supposing $N_t = 4$, i.e. 4 points by time $t$:
 
-The arrival times $T_1, T_2, T_3, T_4$ are the order statistics $U_(1), U_(2), U_(3), U_(4)$ of four IID random variables $U_1, dots, U_4$ drawn from a $"Uniform"(0, t)$ distribution.
+#figure[
+  #image(
+    "./figs/p21_24m.png",
+    width: 80%,
+  )
+]
 
-$ U_1, dots, U_4 $ IID Uniform on $[0, t]$.
-$ U_(1) = $ smallest $U_i = T_1$ (1st arrival time), dots
+$u_1, dots, u_4$ IID Uniform on $[0, t]$ \
+$u_((1)) = "smallest", u_((2)) = T_1$ (2nd arrival time), $dots$
 
 #pagebreak()
 
 First, note that the 2nd theorem implies the 1st:
 
-Conditional on $N_t=n$, $n$ IID $"Uniform"(0,t)$ points are placed on $[0,t]$. Each has probability $s/t$ of landing in $[0,s]$. So,
+Conditional on $N_t=n$, $n$ IID $"Uniform"(0,t)$ points are placed on $[0,t]$.
+Each has probability $s/t$ of landing in $[0,s]$.
+So,
 
 $
   P(N_s=k|N_t=n) = binom(n, k) (s/t)^k (1-s/t)^(n-k)
-$
-$
-  #rect()
 $
 
 #pagebreak()
 
 Proof of 2nd Theorem
 
-First note that the joint PDF of $(U_(1), U_(2), dots, U_(n))$ is
+First note that the joint PDF of $(u_((1)), u_((2)), dots, u_((n)))$ is
+
 $
   f(t_1, dots, t_n) = cases(
-    (n!)/t^n "if" 0 < t_1 < dots < t_n < t,
-    0 "otherwise"
+    (n!)/t^n & quad 0 < t_1 < dots < t_n < t,
+    0 & quad "otherwise"
   )
 $
 
-This is a Stat 134 fact. Easy to see since $1/t^n$ is the joint PDF of $(U_1, U_2, dots, U_n)$ and there are $n!$ ways to order them.
+This is a Stat 134 fact. Easy to see since $1/t^n$ is the joint PDF of $(u_1, u_2, dots, u_n)$ and there are $n!$ ways to order them.
 
 #pagebreak()
 
-So to prove the theorem, we show that $n!/t^n$ is also the joint PDF of the arrival times $(T_1, dots, T_n)$ conditional on $N_t=n$. To see this:
-
-$
-  P(N_t=n) = e^(-lambda t) (lambda t)^n / (n!)
-$
+So to prove the theorem, we show that $n!/t^n$ is also the joint PDF of the arrival times $(T_1, dots, T_n)$ conditional on $N_t=n$.
+To see this: $P(N_t=n) = e^(-lambda t) (lambda t)^n / (n!)$
 
 To have $T_1=t_1, dots, T_n=t_n$, the joint density of the inter-arrival times is:
+
+#figure[
+  #image(
+    "./figs/p21_30m.png",
+    width: 60%,
+  )
+]
+
 $
-  P("Exp"(lambda)=t_1) P("Exp"(lambda)=t_2-t_1) dots P("Exp"(lambda)>t-t_n)
+  = & P("Exp"(lambda)=t_1) P("Exp"(lambda)=t_2 - t_1) \
+    & dots.h.c P("Exp"(lambda)=t_n - t_(n-1)) P("Exp"(lambda) > t - t_n)
 $
 
 #pagebreak()
 
 $
-  = lambda e^(-lambda t_1) lambda e^(-lambda (t_2-t_1)) dots lambda e^(-lambda (t_n-t_(n-1))) e^(-lambda(t-t_n))
+  &= lambda e^(-lambda t_1) quad lambda e^(-lambda (t_2-t_1)) quad dots.h.c quad lambda e^(-lambda (t_n-t_(n-1))) quad e^(-lambda(t-t_n)) \
+  &= lambda^n e^(-lambda t) "(telescoping)"
 $
-$ = lambda^n e^(-lambda t) $ (Telescoping)
 
-Therefore the conditional joint density of $(T_1, dots, T_n)$ is
+
+$therefore$ the conditional joint density of $(T_1, dots, T_n)$ is
+
 $
   (lambda^n e^(-lambda t)) / (e^(-lambda t)(lambda t)^n/(n!)) = (n!)/t^n
 $
-$
-  #rect()
-$
 
 #pagebreak()
 
-The conditioning property is very useful for calculations. See examples and exercises in [G] & [PK]. We'll do one example from [PK]:
+The conditioning property is very useful for calculations.
+See examples and exercises in [D] & [PK]. We'll do one example from [PK]:
 
 #pagebreak()
 
-Example
-
-Customers arrive at a party according to a $"PP"(lambda)$. The entrance fee depends on the time of arrival. At time $t$, the cover charge is $e^(-beta t)$, $beta > 0$. I.e. cover charge decays exponentially with rate $beta$.
+*Eg*
+Customers arrive at a party according to a $"PP"(lambda)$.
+The entrance fee depends on the time of arrival.
+At time $t$, the cover charge is $e^(-beta t)$, $beta > 0$.
+I.e. cover charge decays exponentially with rate $beta$.
 
 Find the mean revenue by time $t$.
 
 #pagebreak()
 
 $
-  R_t = sum_(k=1)^(N_t) e^(-beta T_k)
-$
-
-$
-  E[R_t] = sum_(n=0)^oo E[sum_(k=1)^n e^(-beta T_k) | N_t=n] P(N_t=n)
-$
-$
-  = sum_(n=0)^oo n E(e^(-beta U)) P(N_t=n) ", " U ~ "Uniform"(0, t)
-$
-$
-  = E(e^(-beta U)) sum_(n=0)^oo n P(N_t=n)
-$
-$
-  = E(e^(-beta U)) E(N_t)
-$
-$
-  = (lambda t) (1/t integral_0^t e^(-beta s) d s) = lambda/beta (1 - e^(-beta t))
+  R_t & = sum_(k=1)^(N_t) e^(-beta T_k) \
+  E[R_t] &= sum_(n=0)^oo E[sum_(k=1)^n e^(-beta T_k) | N_t=n] P(N_t=n) \
+  & = sum_(n=0)^oo n E[e^(-beta u)] P(N_t=n), quad u ~ "Uniform"(0, t) \
+  & = E[e^(-beta u)] sum_(n=0)^oo n P(N_t=n) = E[e^(-beta u)] E[N_t] \
+  & = (lambda t) (1/t integral_0^t e^(-beta s) d s) = lambda/beta (1 - e^(-beta t))
 $
