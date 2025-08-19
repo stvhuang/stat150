@@ -1,6 +1,6 @@
 = Poisson Processes
 
-== Lecture 18 (Poisson Processes)
+== Lecture 18 (PP)
 
 New chapter, §2 in [D]
 
@@ -22,27 +22,31 @@ New chapter, §2 in [D]
 
 #pagebreak()
 
-The Poisson process is important because:
+The Poisson Process is important because:
 
 - Many real-world situations can be modeled using them:
   - Cars arriving at a toll booth
-  - Galaxies in some region of the universe (3-D Poisson process)
+  - Galaxies in some region of the universe (3-D Poisson Process)
 
 #pagebreak()
 
-- But also, many calculations work out nicely for the Poisson process because exponential RVs have the "lack of memory" property.
+- But also, many calculations work out nicely for the Poisson Process because exponential RVs have the "lack of memory" property.
+
 - The exponential RV is, in fact, the *only* continuous RV with this property.
 
 #pagebreak()
 
-- In §3, we'll study "renewal processes" --- which have IID inter-arrival times, which need not be exponential.
-- These processes are more complicated, so it is crucial we understand the Poisson process well first.
+- In §3, we'll study "Renewal Processes" --- which have IID inter-arrival times, which need not be exponential.
+
+- These processes are more complicated, so it is crucial we understand the Poisson Process well first.
 
 #pagebreak()
 
 §2.1 --- Exponential RVs
 
-- This section is Stat 134 review. *Please* read on your own to refresh your memory.
+- This section is Stat 134 review.
+  *Please* read on your own to refresh your memory.
+
 - We'll just quickly summarize here:
 
 #pagebreak()
@@ -51,9 +55,7 @@ Recall: "Survival function" of a RV $X$ is
 $
   P(X > x) = 1 - F(x)#footnote[CDF]
 $
-
-Def $X tilde "Exp"(lambda)$, Exponential RV with *rate* $lambda$ if
-
+*Def* $X ~ "Exp"(lambda)$, Exponential RV with *rate* $lambda$ if
 $
   P(X > x) = e^(-lambda x) , quad x >= 0.
 $
@@ -61,16 +63,13 @@ $
 #pagebreak()
 
 To get PDF,
-
 $
   f(x) & = F'(x) = d/(d x) (1 - e^(-lambda x)) \
        & = lambda e^(-lambda x).
 $
-
 Can show:
-
 $
-      E X & = 1/lambda \
+    "E" X & = 1/lambda \
   "Var" X & = 1/lambda^2
 $
 
@@ -79,31 +78,29 @@ $
 Other useful properties:
 
 1. Lack of Memory (LoM):
-
 $
   P(X > t+s | X > t) = P(X > s)
 $
-
 $
   ["Proof: LHS" = (e^(-lambda (t+s)))/(e^(-lambda t)) = e^(-lambda s) = "RHS"]
 $
 
 $therefore$ Conditional on $X > t$, RV starts afresh at time $t$, as though it were a brand new $"Exp"(lambda)$.
 
+// >>
+
 #pagebreak()
 
-2. Sum of $n$ IID $"Exp"(lambda)$ RVs is called a Gamma($n, lambda$).
-
+2. Sum of $n$ IID $"Exp"(lambda)$ RVs is called a $"Gamma"(n, lambda)$.
 $
   T_n = sum_(i=1)^n T_i, quad T_i "IID" "Exp"(lambda).
 $
-
 $
   f#footnote[PDF] _(T_n)(t) = lambda e^(-lambda t) ((lambda t)^(n-1))/((n-1)!) , quad t >= 0
 $
 
 - Proof: Induction (see [D]).
-- Note: If $n=1$, $f(t) = lambda e^(-lambda t)$, so Gamma$(1, lambda) = "Exp"(lambda)$.
+- Note: If $n=1$, $f(t) = lambda e^(-lambda t)$, so $"Gamma"(1, lambda) = "Exp"(lambda)$.
 
 #pagebreak()
 
