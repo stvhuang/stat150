@@ -33,9 +33,10 @@
 #include "./lec15.typ"
 #include "./lec16.typ"
 #include "./lec17.typ"
+#include "./lec18.typ"
 
 // Poisson Process
-#include "./lec18.typ"
+#include "./lec18_pp.typ"
 #include "./lec19.typ"
 #include "./lec20.typ"
 #include "./lec21.typ"
