@@ -116,7 +116,7 @@ This follows by the following remarkable fact:
 
 *Theorem*
 Let $(N_t)$ be a $"PP"(lambda)$.
-The conditional on $N_t = n$, the arrival times $T_k = sum_(i=1)^k tau_i$, $1 <= k <= n$, are distributed as the order statistics of $n$ IID $"Uniform"(0, t)$ random variables.
+Then conditional on $N_t = n$, the arrival times $T_k = sum_(i=1)^k tau_i$, $1 <= k <= n$, are distributed as the order statistics of $n$ IID $"Uniform"(0, t)$ random variables.
 
 $u_1, u_2, dots, u_n$ IID $"Uniform"(0, t)$ \
 $u_((1)), u_((2)), dots, u_((n))$ (order statistics)
@@ -124,7 +124,7 @@ $u_((1)), u_((2)), dots, u_((n))$ (order statistics)
 - $u_((1))$: smallest $u_i = T_1$ (1st arrival time)
 - $u_((2))$: 2nd smallest $u_i = T_2$
 - $dots$
-- $u_((n))$: largest $u_i = T_n$ (last arrival
+- $u_((n))$: largest $u_i = T_n$ (last arrival time)
 
 #pagebreak()
 
