@@ -15,7 +15,7 @@ indep. for *any* $t_0 < t_1 < dots < t_n$.
 
 #pagebreak()
 
-#text(size: 10pt)[
+#text(size: 9pt)[
   $
     N_(t_1) - N_(t_0) & = "# points in" (t_0, t_1] \
     "(2.)" & =^d "Poisson"(lambda (t_1 - t_0)#footnote[length of $(t_0, t_1]$])
@@ -52,7 +52,7 @@ This is why it is called a Poisson Process.
 
 *Constructing a rate $lambda$ Poisson Process:*
 
-$tau_1, tau_2, dots " iid Exp"(lambda)$
+$tau_1, tau_2, dots " IID Exp"(lambda)$
 
 Let $T_n = sum_(i=1)^n tau_i =^d "Gamma"(n, lambda)$.
 
@@ -182,9 +182,7 @@ This is because the length of time until a \* after $s$ is indep. of whatever ha
 
 #pagebreak()
 
-We'll skip §2.2.2
-on "more realistic models" for now.
-
+We'll skip §2.2.2 on "more realistic models" for now.
 $"PP"(lambda)$ pts arrive at rate $lambda$, independent of time $t$.
 
 The non-homogeneous#footnote[$lambda_t$ depends on $t$] Poisson Process on p.105 is interesting.
@@ -216,7 +214,7 @@ is the total magnitude felt along fault by time $t$.
 
 Note: For a regular $"PP"(lambda)$, all $Y_i = 1$.
 
-\* More examples of compound Poisson Processes in §2.2.
+- More examples of compound Poisson Processes in §2.2.
 
 #pagebreak()
 
@@ -229,13 +227,13 @@ $
   S_t = sum_(i=1)^(N_t) Y_i
 $
 
-denote the compound Poisson Process.
+denote the Compound Poisson Process.
 
 Then
 
 $
-      E S_t & = lambda t E Y \
-  "Var" S_t & = lambda t E(Y^2).
+    "E"S_t & = lambda t "E"Y \
+  "Var"S_t & = lambda t "E"(Y^2).
 $
 
 #pagebreak()
@@ -243,11 +241,11 @@ $
 In a similar way, we can calculate 2nd moment:
 
 $
-  E(S_t^2) &= sum_(n=0)^oo P(N_t = n) E(S_t^2 | N_t = n) \
-  &= sum_(n=0)^oo P(N_t = n) [n "Var"Y + (n E Y)^2#footnote[$"Var"X = E(X^2) - (E X)^2$]] \
-  &= "Var"Y E(N_t) + (E Y)^2 E(N_t^2) \
-  &= lambda t ( "Var"Y + (E Y)^2 ) \
-  &= lambda t E(Y^2) quad square
+  "E"(S_t^2) &= sum_(n=0)^oo P(N_t = n) "E"(S_t^2 | N_t = n) \
+  &= sum_(n=0)^oo P(N_t = n) [n "Var"Y + (n "E"Y)^2#footnote[$"Var"X = "E"(X^2) - ("E"X)^2$]] \
+  &= "Var"Y "E"(N_t) + ("E"Y)^2 "E"(N_t^2) \
+  &= lambda t ( "Var"Y + ("E"Y)^2 ) \
+  &= lambda t "E"(Y^2) quad square
 $
 
 #pagebreak()
@@ -256,11 +254,11 @@ $
   Proof
 
   $
-    E(S_t) &= sum_(n=0)^oo P(N_t = n) E(S_t | N_t = n) \
-    &= sum_(n=0)^oo P(N_t = n) n E Y#footnote[$S_t | (N_t=n) = sum_(i=1)^n Y_i$] \
-    &= E Y sum_(n=0)^oo n P(N_t = n) \
-    &= E Y dot E(N_t) \
-    &= lambda t E Y#footnote[$N_t ~ "Poisson"(lambda t)$]
+    "E"(S_t) &= sum_(n=0)^oo P(N_t = n) "E"(S_t | N_t = n) \
+    &= sum_(n=0)^oo P(N_t = n) n "E"Y#footnote[$S_t | (N_t=n) = sum_(i=1)^n Y_i$] \
+    &= "E"Y sum_(n=0)^oo n P(N_t = n) \
+    &= "E"Y dot "E"(N_t) \
+    &= lambda t "E"Y#footnote[$N_t ~ "Poisson"(lambda t)$]
   $
 ]
 
@@ -273,15 +271,15 @@ Suppose each customer spends an IID amount of money with mean \$8 and SD \$6. Fi
 #pagebreak()
 
 $
-  R = sum_(i=1)^(N_1) Y_i, quad E Y = 8, quad "Var" Y = 36, quad N_1 ~ "Poisson"(81)
+  R = sum_(i=1)^(N_1) Y_i, quad "E"Y = 8, quad "Var"Y = 36, quad N_1 ~ "Poisson"(81)
 $
 
-By theorem, $E R = 81#footnote[$lambda t = lambda dot 1 = 81$] dot 8#footnote[$E Y$] = \$648$
+By theorem, $"E"R = 81#footnote[$lambda t = lambda dot 1 = 81$] dot 8#footnote[$"E"Y$] = \$648$
 
 $
-  \& "Var" R & = 81 E(Y^2) \
-             & = 81 ("Var" Y + (E Y)^2) \
-             & = 81 (36 + 64) = 8,100
+  \& "Var"R & = 81 "E"(Y^2) \
+            & = 81 ("Var"Y + ("E"Y)^2) \
+            & = 81 (36 + 64) = 8,100
 $
 
 $therefore "SD"(R) = sqrt(8100) = \$90$

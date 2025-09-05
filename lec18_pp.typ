@@ -26,7 +26,7 @@ The Poisson Process is important because:
 
 - Many real-world situations can be modeled using them:
   - Cars arriving at a toll booth
-  - Galaxies in some region of the universe (3-D Poisson Process)
+  - Galaxies in some region of the universe (3-D#footnote[$R^3$] Poisson Process)
 
 #pagebreak()
 
@@ -93,7 +93,7 @@ $therefore$ Conditional on $X > t$, RV starts afresh at time $t$, as though it w
 
 2. Sum of $n$ IID $"Exp"(lambda)$ RVs is called a $"Gamma"(n, lambda)$.
 $
-  T_n = sum_(i=1)^n T_i, quad T_i "IID" "Exp"(lambda).
+  T_n = sum_(i=1)^n T_i, quad T_i quad "IID" "Exp"(lambda).
 $
 $
   f#footnote[PDF] _(T_n)(t) = lambda e^(-lambda t) ((lambda t)^(n-1))/((n-1)!) , quad t >= 0
