@@ -7,6 +7,10 @@
   font: "Libertinus Sans",
   size: 12pt,
 )
+// #show math.equation: set text(
+//   font: "Libertinus Math",
+//   size: 12pt,
+// )
 
 #show: slides.with(
   authors: ("Curated by Steven Huang (stvhuang.me@gmail.com)",),
