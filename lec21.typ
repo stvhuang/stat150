@@ -1,17 +1,16 @@
 == Lecture 21
 
 *Theorem*
-
 Suppose we have a Poisson Process with rate $lambda$, however we keep a point arriving at time $tau$ only with probability $p(tau)$ (and otherwise delete the point).
 Then the resulting process is a non-homogeneous Poisson Process with rate \
 $(lambda p(r), r >= 0)$.
 
 #pagebreak()
 
-Example 2.9 (M/G/infinity Queue)
+Example 2.9 (M/G/$oo$ queue)
 
 Calls arrive at a call center with infinitely many agents according to a $"PP"(lambda)$.
-The duration of any given call follows some distribution with cdf $G$ with $G(0)=0$ & mean $mu$.
+The duration of any given call follows some distribution with CDF $G$ with $G(0)=0$ & mean $mu$.
 
 $
   G(y) = P("call time" <= y)
@@ -22,7 +21,7 @@ $
 By the previous theorem, for any $t$, the number of ongoing calls at time $t$ is Poisson with mean
 
 $
-  integral_0^t lambda[1 - G(t-s)]#footnote[prob. call placed at time $s$ is ongoing] d s &= lambda integral_0^t [1 - G(t-s)] d s \
+  integral_0^t lambda[1 - G(t-s)#footnote[prob. call takes at most $t-s$ time]]#footnote[prob. call placed at time $s$ is ongoing] d s &= lambda integral_0^t [1 - G(t-s)] d s \
   &=#footnote[change of variables $u = t-s$, $d u = - d s$] lambda integral_0^t [1 - G(u)] d u
 $
 
@@ -39,7 +38,6 @@ $therefore$ In the long run/equilibrium, the number of calls in the system will 
 #pagebreak()
 
 *Example*
-
 Customers arrive at a store at a rate of 10/hour.
 60% men, 40% women.
 Men stay for an $"Exp"(2)$ duration, women for a $"Uniform"(0, 1/2)$ duration.
@@ -60,11 +58,12 @@ $
 
 Superposition of Poisson Processes
 
-Instead of thinning, we can also add independent PPs to get another PP. rates are added!
+Instead of thinning, we can also add independent PPs to get another PP.
+Rates are added!
 
 *Theorem*
 $N_1, dots, N_m$ independent $"PP"(lambda_i)$.
-Then $N_t = sum_(i=1)^m N_i(t)$ is a Poisson Process, rate $sum_(i=1)^m lambda_i$.
+Then $N_t = sum_(i=1)^m N_i (t)$ is a Poisson Process, rate $sum_(i=1)^m lambda_i$.
 
 #pagebreak()
 
@@ -93,7 +92,7 @@ What is the probability we see 6 reds before 4 blues?
 
 $
   &therefore P("6 reds before 4 blues") \
-  &= sum_(k=6)^9 binom(9, k) (lambda / (lambda + mu))^k (mu / (lambda + mu))^(9-k)
+  &= #footnote[$P("Bin"(9, lambda / (lambda + mu)) >= 6)$]sum_(k=6)^9 binom(9, k) (lambda / (lambda + mu))^k (mu / (lambda + mu))^(9-k)
 $
 
 #pagebreak()
@@ -139,7 +138,7 @@ Supposing $N_t = 4$, i.e. 4 points by time $t$:
 ]
 
 $u_1, dots, u_4$ IID Uniform on $[0, t]$ \
-$u_((1)) = "smallest", u_((2)) = T_1$ (2nd arrival time), $dots$
+$u_((1)) = "smallest", u_((2)) = "2nd smallest", dots$
 
 #pagebreak()
 
@@ -171,7 +170,7 @@ This is a Stat 134 fact. Easy to see since $1/t^n$ is the joint PDF of $(u_1, u_
 #pagebreak()
 
 So to prove the theorem, we show that $n!/t^n$ is also the joint PDF of the arrival times $(T_1, dots, T_n)$ conditional on $N_t=n$.
-To see this: $P(N_t=n) = e^(-lambda t) (lambda t)^n / (n!)$
+To see this: $P(N_t=n) = e^(-lambda t) (lambda t)^n / (n!) = P("Poi"(lambda t) = n)$
 
 To have $T_1=t_1, dots, T_n=t_n$, the joint density of the inter-arrival times is:
 
@@ -220,7 +219,7 @@ Find the mean revenue by time $t$.
 
 $
   R_t & = sum_(k=1)^(N_t) e^(-beta T_k) \
-  E[R_t] &= sum_(n=0)^oo E[sum_(k=1)^n e^(-beta T_k) | N_t=n] P(N_t=n) \
+  E[R_t] &=^"LoTP" sum_(n=0)^oo E[sum_(k=1)^n e^(-beta T_k) | N_t=n] P(N_t=n) \
   & = sum_(n=0)^oo n E[e^(-beta u)] P(N_t=n), quad u ~ "Uniform"(0, t) \
   & = E[e^(-beta u)] sum_(n=0)^oo n P(N_t=n) = E[e^(-beta u)] E[N_t] \
   & = (lambda t) (1/t integral_0^t e^(-beta s) d s) = lambda/beta (1 - e^(-beta t))
