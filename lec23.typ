@@ -2,11 +2,11 @@
 
 Recall:
 
-A *renewal process* ($N_t, t >= 0$) has IID inter-arrival times $T_1, T_2, dots$ with $mu = E T_i$.
+A *Renewal Process* ($N_t, t >= 0$) has IID inter-arrival times $tau_1, tau_2, dots$ with $mu = "E"tau$.
 
 *Main theorem*:
 $
-  N_t / t -> 1 / mu quad "as" quad t -> oo
+  N_t / t -> 1 / mu "as" t -> oo
 $
 
 (On average, wait $mu$ for next point, so $1/mu$ points per unit time.)
@@ -15,13 +15,13 @@ $
 
 *Renewal-reward process*
 
-IID seq. of "rewards" $r_1, r_2, dots$
-Indep. of $T_1, T_2, dots$ Reward $r_n$ is received at time $T_n = sum_(i=1)^n T_i$.
+IID seq. of "rewards" $r_1, r_2, dots$ indep. of $tau_1, tau_2, dots$.
+Reward $r_n$ is received at time $T_n = sum_(i=1)^n tau_i$.
 
 $
-  R_t = sum_(i=1)^(N_t) r_i
+  R_t & = sum_(i=1)^(N_t) r_i \
+      & = "total reward by time" t
 $
-\= Total reward by time $t$.
 
 *Main theorem*
 $
@@ -30,30 +30,30 @@ $
 
 #pagebreak()
 
-[p] § 3.2: Applications of renewal processes to queueing theory
+[D] § 3.2: Applications of Renewal Processes to queueing theory
 
-*1st example: G/G/1 queue*
+1st example: GI/G/1 queue
 
-GI = General input
-G = General service times
+GI = General input \
+G = General service times \
 1 = One server.
 
 #pagebreak()
 
-$T_1, T_2, dots$ inter-arrival times with some cdf $F(x) = P(T <= x)$ and $E T = 1/lambda$.
+$tau_1, tau_2, dots$ inter-arrival times with some CDF $F(x) = P(tau <= x)$ and $"E"tau = 1/lambda$.
 
 By previous theorem,
 $
-  N_t / t -> lambda quad "as" quad t -> oo
+  N_t / t -> lambda "as" t -> oo
 $
-where $N_t$ = \# arrivals by time $t$.
+where $N_t = "# arrivals by time" t$.
 
 #pagebreak()
 
-Next, suppose service times $S_1, S_2, dots$ are IID with cdf $G(x) = P(S <= x)$ and $E S = 1/mu$.
+Next, suppose service times $s_1, s_2, dots$ are IID with CDF $G(x) = P(S <= x)$ and $"E"S = 1/mu$.
 
-$therefore$ customers arrive at rate $lambda$
-$----$ served $----$ $mu$.
+$therefore$ customers arrive at rate $lambda$ \
+and customers are served at rate $mu$
 
 Our first result is very intuitive:
 Namely, if $lambda < mu$ then server can handle the customers well:
@@ -62,11 +62,18 @@ Namely, if $lambda < mu$ then server can handle the customers well:
 
 *Theorem.* If $lambda < mu$ then the long run proportion of time the server is busy is $<= lambda/mu < 1$.
 
-*Proof.* $T_n = sum_(i=1)^n T_i$ = arrival time of $n$-th customer.
+*Proof.* $T_n = sum_(i=1)^n tau_i = "arrival time of" n^("th") "customer"$
 
 By SLLN, $T_n / n -> 1/lambda$.
 
-Similarly, let $S_n = sum_(i=1)^n S_i$ = total time in service after $n$ customers served.
+Similarly, let $S_n = sum_(i=1)^n s_i$ = total time in service after $n$ customers served.
+
+#figure[
+  #image(
+    "./figs/p23_22m.png",
+    width: 60%,
+  )
+]
 
 #pagebreak()
 
@@ -74,7 +81,7 @@ By SLLN $S_n / n -> 1/mu$. Also, at time $T_n$, server has been busy $<= S_n$ ti
 
 & $S_n / T_n -> lambda / mu$.
 
-Skipping some details (see p. 131)
+Skipping some details (see p. 131).
 We'll see this another way later on $dots$
 
 #pagebreak()
