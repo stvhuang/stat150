@@ -86,7 +86,7 @@ We'll see this another way later on $dots$
 
 #pagebreak()
 
-*Cost equations* (Any queue)
+*Cost equations* (*any* queue)
 
 Let $X_s$ = \# customers in system at time $s$ (being served or waiting in queue).
 
@@ -107,9 +107,8 @@ where $W_m$ = amount of time spent in system by $m$th customer.
 
 Finally, LR average rate at which customers arrive:
 $
-  lambda_a = lim_(t -> oo) (N_a (t)) / t = lambda
+  lambda_a = lim_(t -> oo) (N_a (t)) / t = lambda#footnote[if GI/G/1 queue]
 $
-(if G/G/1 queue)
 
 where $N_a (t)$ = \# customers by time $t$.
 
