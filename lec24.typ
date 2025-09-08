@@ -148,70 +148,95 @@ $X_(n+1) = X_n + xi_n - 1$
 
 #pagebreak()
 
+#figure[
+  #image(
+    "./figs/p24_25m.png",
+    height: 100%,
+  )
+]
+
+#pagebreak()
+
 Therefore,
 
 $
-  p = mat(
+  P = mat(
     a_0+a_1, a_2, a_3, a_4, dots;
     a_0, a_1, a_2, a_3, dots;
     0, a_0, a_1, a_2, dots;
     0, 0, a_0, a_1, dots;
-    dots.v, dots.v, dots.v, dots.v, dots.v
+    dots.v, dots.v, dots.v, dots.v, dots.down
   )
+$
+
+$
+  P_(0 0) & = a_0 + a_1 \
+  P_(0 1) & = a_2 \
+  P_(1 0) & = a_0
 $
 
 #pagebreak()
 
 *Theorem.* In M/G/1 Queue,
 
-$X_n$ = \# in queue when $n$th customer starts service
+$X_n$ = \# in queue when $n^"th"$ customer starts service
 
-$ lambda < mu: (X_n) $ Pos Rec & $ E_0 T_0 = mu / (mu-lambda) $
+$lambda < mu: (X_n)$ Pos Rec & $"E"_0 T_0#footnote[starting with 0 people in the queue, the expected length of time we have to wait to clear out the queue] = mu / (mu-lambda)$
 
-$ lambda = mu: (X_n) $ Null Rec
+$lambda = mu: (X_n)$ Null Rec
 
-$ lambda > mu: (X_n) $ Trans
-
-#pagebreak()
-
-*Proof.* Consider the customers that arrive during $n$th service time the "children" of this customer. Then we can compare $(X_n)$ with a BP with offspring distribution
-$ P(xi = k) = a_k $.
+$lambda > mu: (X_n)$ Trans
 
 #pagebreak()
 
+*Proof*
+Consider the customers that arrive during $n^"th"$ service time the "children" of this customer.
+Then we can compare $(X_n)$ with a BP with offspring distribution
 $
-  E xi = sum_k k a_k
-$
-$
-  = sum_k k integral_0^oo e^(-lambda t) ((lambda t)^k)/(k!) d G(t)
-$
-$
-  = integral_0^oo lambda t d G(t)
-$
-$
-  = lambda E S
-$
-$
-  = lambda/mu
+  P(xi = k) = a_k
 $
 
 #pagebreak()
 
-$ therefore $ Trans, Pos Rec, Null Rec follow by BP theory.
+#text(size: 11pt)[
+  $
+    "E"xi & = sum_k k a_k \
+    & = sum_k k integral_0^oo underbrace(e^(-lambda t) ((lambda t)^k)/(k!), P("Poi"(lambda t) = k)) d G(t) \
+    & = integral_0^oo underbrace(lambda t, #footnote[$sum_k k P("Poi"(lambda t) = k) = "E"("Poi"(lambda t)) = lambda t$]) d G(t) \
+    & = lambda "E"S \
+    & = lambda/mu
+  $
+]
 
-Only remains to show $ E_0 T_0 = mu/(mu-lambda) $ in Pos Rec case.
+#pagebreak()
+
+$therefore$ Trans, Pos Rec, Null Rec follow by BP#footnote[branching process] theory.
+
+Only remains to show \
+$"E"_0 T_0 = mu/(mu-lambda)$ in Pos Rec case.
 
 Note BP transitions in discrete
 
 #pagebreak()
 
-steps, whereas $(X_n)$ transitions in varying continuous steps $T_1, T_2, dots$ of the underlying PP($lambda$).
+steps, whereas $(X_n)$ transitions in varying continuous steps $tau_1, tau_2, dots$ of the underlying $"PP"(lambda)$.
 
-This did not matter for determining Trans, Pos Rec, Null Rec. But for $E_0 T_0$ we need to look at time $T_0$,
+This did not matter for determining Trans, Pos Rec, Null Rec.
+But for $"E"_0 T_0$ we need to look at time $T_0$,
 
 #pagebreak()
 
 which is different in $(X_n)$ than in BP.
 
-Recall that for GI/G/1 we showed $pi_0 = 1 - lambda/mu = (mu-lambda)/mu$ if customers arrive rate $lambda$. That is case here for PP($lambda$).
-$ therefore E_0 T_0 = 1/pi_0 = mu/(mu-lambda) $. $qed$
+Recall that for GI/G/1 we showed $pi_0 = 1 - lambda/mu = (mu-lambda)/mu$ if customers arrive rate $lambda$.
+
+That is case here for $"PP"(lambda)$.
+$
+  therefore "E"_0 T_0 = 1 / pi_0 = mu/(mu-lambda)
+$
+
+#pagebreak()
+
+More to say about M/G/1 queue.
+We will skip this.
+See p.134-136 if interested.
