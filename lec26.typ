@@ -1,3 +1,5 @@
+= Continuous Time Markov Chains
+
 == Lecture 26
 
 Recall that discrete time MC's ($X_n$) have "Markov Property":
