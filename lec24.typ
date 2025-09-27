@@ -76,7 +76,7 @@ Let $L_Q$ = LR average queue length (not counting customer being served).
 
 If instead, only pay \$1 when in queue, then
 $
-  L_a = lambda_a W_Q
+  L_Q = lambda_a W_Q
 $
 
 The length of queue is 0 if no customers, and otherwise 1 less than \# customers in system.
@@ -109,7 +109,7 @@ $
 
 #pagebreak()
 
-$therefore$ if GI/G/1 Queue, $pi_0 = 1 - lambda/mu$
+$therefore$ if GI/G/1 Queue, $pi_0 = 1 - lambda/mu$#footnote[$lambda_a = lambda, "E"S = 1 / mu, lambda_a "E"S = lambda / mu$]
 
 $therefore 1 - pi_0 =$ LR prop. busy $= lambda/mu$
 
@@ -130,7 +130,7 @@ Thus MC can be constructed as follows:
 Prob. exactly $k$ customers arrive during any given service time is:
 
 $
-  a_k = integral_0^oo underbrace(e^(-lambda t) ((lambda t)^k) / (k!), #footnote[Prob. k more customers arrive during this service time]) underbrace(d G(t), #footnote[$G$ = CDF of service time, $g$ = PDF, $d G(t) = g(t) d t$])
+  a_k = integral_0^oo underbrace(e^(-lambda t) ((lambda t)^k) / (k!), #footnote[Prob. k more customers arrive during this service time, $P("Poi"(lambda t) = k)$]) underbrace(d G(t), #footnote[$G$ = CDF of service time, $g$ = PDF, $d G(t) = g(t) d t$])
 $
 
 #pagebreak()
@@ -144,7 +144,7 @@ $xi_n$ = \# customers arriving during $n^"th"$ service time.
 
 If $X_n = xi_n = 0$#footnote[$X_n = 0$, there is no people in the queue when the $n^"th"$ people starts to be served], then $X_(n+1) = 0$. \
 Otherwise:
-$X_(n+1) = X_n + xi_n - 1$
+$X_(n+1) = X_n + xi_n underbrace(- 1, n^"th" "person has done being served")$
 
 #pagebreak()
 
@@ -181,7 +181,7 @@ $
 
 $X_n$ = \# in queue when $n^"th"$ customer starts service
 
-$lambda < mu: (X_n)$ Pos Rec & $"E"_0 T_0#footnote[starting with 0 people in the queue, the expected length of time we have to wait to clear out the queue] = mu / (mu-lambda)$
+$lambda < mu: (X_n)$ Pos Rec & $"E"_0 T_0#footnote[starting with 0 people in the queue, the expected length of time we have to wait to clear out the queue] = mu / (mu-lambda)#footnote[$pi_0 = 1 - lambda / mu$]$
 
 $lambda = mu: (X_n)$ Null Rec
 
@@ -215,7 +215,7 @@ $therefore$ Trans, Pos Rec, Null Rec follow by BP#footnote[branching process] th
 Only remains to show \
 $"E"_0 T_0 = mu/(mu-lambda)$ in Pos Rec case.
 
-Note BP transitions in discrete
+*Note* BP transitions in discrete
 
 #pagebreak()
 
