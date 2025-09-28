@@ -1,10 +1,12 @@
+#import "misc.typ": *
+
 == Lecture 27
 
 Last class, we began discussing continuous time MC's.
 
 For these processes, there is no "1st step" after any given time. But we still have transition probabilities
 $
-  P_t(i, j) = P(X_(s+t) = j | X_s = i).
+  p_t (i, j) = P(X_(s+t) = j | X_s = i)
 $
 
 #pagebreak()
@@ -18,7 +20,7 @@ There is no 1st step in continuous time, so instead we take $t -> 0$ to distill 
 More specifically, the derivative at $t=0$ gives us the "jump rate."
 
 $
-  q_(i j) = lim_(t -> 0) (P_t(i, j)) / t quad (i != j)
+  q_(i j) = lim_(t -> 0) (p_t (i, j)) / t quad (i != j)
 $
 
 This is the *rate* at which $(X_t)$ jumps from $i$ to $j$.
@@ -27,7 +29,8 @@ This is the *rate* at which $(X_t)$ jumps from $i$ to $j$.
 
 Example:
 
-E.g. Poisson process $(N_t)$ with rate $lambda$. Here:
+E.g. Poisson Process $(N_t)$ with rate $lambda$.
+Here:
 $
   q_(i, i+1) = lambda quad "for" i >= 0.
 $
@@ -35,11 +38,9 @@ Because new points appear in time at rate $lambda$.
 
 #pagebreak()
 
-E.g. M/M/s Queue
-
-$s$ servers.
-Arrivals are iid $"Exp"(lambda)$.
-Service times iid $"Exp"(mu)$.
+E.g. M/M/s Queue $s$ servers \
+Arrivals are iid $Exp(lambda)$. \
+Service times iid $Exp(mu)$. \
 
 $X_t = \#$ customers in system (in queue or being served) at time $t$.
 
