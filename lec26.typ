@@ -127,7 +127,7 @@ E.g. in PP($lambda$) itself, we just have $q_(i,i+1) = lambda$.
 
 Other simple (but important) examples:
 
-E.g. M/M/s Queue $s$ servers \
+E.g. M/M/s queue $s$ servers \
 Arrivals are IID $Exp(lambda)$ \
 Service times IID $Exp(mu)$
 
