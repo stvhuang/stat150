@@ -81,11 +81,11 @@ $therefore mu_i = P(T > i)$ is a stationary measure.
 
 #pagebreak()
 
-Note $sum_i underbrace(P(T > i), mu_i) =#footnote[tail formula for expectation] Exp(tau)$.
+Note $sum_i underbrace(P(T > i), mu_i) =#footnote[tail formula for expectation] E(tau)$.
 
-$therefore pi_i = (P(tau > i)) / (Exp(tau))$ is SD.
+$therefore pi_i = (P(tau > i)) / (E(tau))$ is SD.
 
-[Assuming $Exp(tau) < oo$].
+[Assuming $E(tau) < oo$].
 
 So by MC theory
 
@@ -94,7 +94,7 @@ So by MC theory
 *Theorem*
 (Assuming $(Z_n)$ is *IRR* & *APER*) we have
 $
-  lim_(n->oo) P(Z_n#footnote[Also for $A_n$] = i) = (P(tau >= i)) / Exp(tau)
+  lim_(n->oo) P(Z_n#footnote[Also for $A_n$] = i) = (P(tau >= i)) / E(tau)
 $
 
 This gives the limiting distribution of the $(Z_n)$ in terms of distribution of inter-arrival times $tau$.
@@ -106,13 +106,13 @@ This gives the limiting distribution of the $(Z_n)$ in terms of distribution of 
 Done in detail in [D].
 We'll just touch on it briefly.
 
-In discrete case, we showed $pi_i = (P(tau > i)) / (Exp(tau))$ is limiting distribution for $(Z_k)$ [& also $(A_k)$].
+In discrete case, we showed $pi_i = (P(tau > i)) / (E(tau))$ is limiting distribution for $(Z_k)$ [& also $(A_k)$].
 
 #pagebreak()
 
 Similarly, in the continuous case, one can show that
 $
-  g(x) = (P(tau > x)) / (Exp(tau))
+  g(x) = (P(tau > x)) / (E(tau))
 $
 is limiting distribution for $(Z_s, s >= 0)$ & $(A_s, s >= 0)$.
 
@@ -122,9 +122,9 @@ Using this
 
 *Inspection Paradox*
 $
-  integral_0^oo z g(z) d z & = integral_0^oo z (P(tau > z)) / Exp(tau) d z \
-  & = 1 / (Exp(tau)) integral_0^oo z P(tau > z) d z \
-  & =#footnote[Recall: $Exp(tau) = integral_0^oo P(tau > z) d z$. Similarly, $Exp (tau^k) = integral_0^oo k z^(k-1) P(tau > z) d z$] 1 / Exp(tau) Exp(tau^2) / 2
+  integral_0^oo z g(z) d z & = integral_0^oo z (P(tau > z)) / E(tau) d z \
+  & = 1 / (E(tau)) integral_0^oo z P(tau > z) d z \
+  & =#footnote[Recall: $E(tau) = integral_0^oo P(tau > z) d z$. Similarly, $E (tau^k) = integral_0^oo k z^(k-1) P(tau > z) d z$] 1 / E(tau) E(tau^2) / 2
 $
 
 #pagebreak()
@@ -132,14 +132,14 @@ $
 $therefore$ For large $t$,
 $
   L_t#footnote[Lifetime of bulb in use at time $t$] & = A_t + Z_t \
-  therefore Exp(L_t)& approx cancel(2) dot 1 / (Exp(tau)) Exp(tau^2) / cancel(2) \
-  & = (Exp(tau^2)) / (Exp(tau)) > Exp(tau)
+  therefore E(L_t)& approx cancel(2) dot 1 / (E(tau)) E(tau^2) / cancel(2) \
+  & = (E(tau^2)) / (E(tau)) > E(tau)
 $
 
-(since $Exp(tau^2) - (Exp(tau))^2 = Var(tau) > 0$#footnote[If $Var(tau) = 0$, then all $tau_i equiv c$. This case isn't interesting.])
+(since $E(tau^2) - (E(tau))^2 = Var(tau) > 0$#footnote[If $Var(tau) = 0$, then all $tau_i equiv c$. This case isn't interesting.])
 
 #pagebreak()
 
-This is an (*apparent*) paradox, since each lightbulb has mean $Exp(tau)$.
+This is an (*apparent*) paradox, since each lightbulb has mean $E(tau)$.
 
 *However*, lightbulbs with longer lifetimes are more likely to be the ones in use when we happen to make an inspection.
