@@ -26,7 +26,7 @@ We extend the MP as follows:
 #pagebreak()
 
 *Def* \
-($X_t, t >= 0$) is a *continuious* itime MC on $Omega subset Z$ if
+($X_t, t >= 0$) is a *continuious* time MC on $Omega subset Z$ if
 $
   P(X_(t+s)=j | X_s=i, X_(s_n)=i_n, dots, X_(s_0)=i_0) \
   = P(X_(t+s)=j | X_s=i)
@@ -60,14 +60,14 @@ If $X_t = i$, then by LOM & MP of ($Y_n$), the next transition will occur after 
 
 For discrete time MC everything we wanted to know came from the "1-step transition probabilities" $p_(i j)=P(X_(n+1)=j|X_n=i)$.
 
-In continuous time, there is no first step, *but* we still have $p_t (i,j) = P(X_t=j | X_0=i)$.
+In continuous time, there is no first step, *but* we still have $p_t (i,j) = P(X_t=j | X_0=i)$#footnote[currently at state $i$, prob. of being at state $j$ after time $t$].
 
 #pagebreak()
 
 E.g. in previous example:
 
 $
-  p_t (i,j) =^("LoTP") sum_(n=0)^oo underbrace(e^(-lambda t)(lambda t)^n / (n!), P(n "*'s in" (0, t])) underbrace(r_(i j)^n, n"-step pr." \ P(Y_n=j | Y_0=i))
+  p_t (i,j) =^("LoTP") sum_(n=0)^oo underbrace(e^(-lambda t)(lambda t)^n / (n!), P(n "*'s in" (0, t])) underbrace((r^n)_(i j), n"-step pr." \ P(Y_n=j | Y_0=i))
 $
 
 #pagebreak()
@@ -91,7 +91,7 @@ Again by MP + LoTP, at time $s in [0, t+s]$, the MC has to be a some $k$.
 
 #pagebreak()
 
-Although there is no 1st step, it is intuitive that in this continuous context we should instead take a limit $t -> 0$ to distill all relevant info about the transition probabilities of a continuous MC.
+Although there is no $1^"st"$ step, it is intuitive that in this continuous context we should instead take a limit $t -> 0$ to distill all relevant info about the transition probabilities of a continuous MC.
 
 #pagebreak()
 
@@ -109,7 +109,7 @@ E.g. in the previous examples:
 
 $
   & P(>= 1 "*'s in" (0, t]) \
-  & = P(=1 "* in" (0, t]) + o(t)#footnote[Some function going $-> 0$ as $t -> 0$] \
+  & = underbrace(P(=1 "* in" (0, t]), e^(-lambda t) lambda t) + o(t)#footnote[Some function going $-> 0$ as $t -> 0$] \
   & therefore q_(i j) = lim_(t->0) (p_t (i,j)) / t = lambda r_(i j)#footnote[we will do this in more detail in §4.2]
 $
 

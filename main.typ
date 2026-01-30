@@ -17,8 +17,8 @@
   layout: "small",
   ratio: 4 / 3,
   subtitle: [Last update: #datetime.today().display()],
-  title: "UCBerkeley STAT150\nLecture Notes",
   title-color: rgb("#002676"),
+  title: "UCBerkeley STAT150\nLecture Notes",
 )
 
 // Markov Chain
